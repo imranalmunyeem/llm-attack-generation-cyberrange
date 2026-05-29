@@ -1,0 +1,9 @@
+OPENAI_MODEL = "gpt-4.1-mini"
+
+DATASET_TARGET = 500
+
+BATCH_SIZE = 25
+
+OUTPUT_PATH = "dataset/raw"
+
+ENABLE_DEDUPLICATION = True
