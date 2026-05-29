@@ -1,10 +1,10 @@
+import json
 import random
 from datetime import datetime
 
 # -----------------------------
-# METRICS ENGINE (RESEARCH CORE)
+# STAGE WEIGHTS (SOC realism model)
 # -----------------------------
-
 STAGE_WEIGHTS = {
     "Initial Access": 0.9,
     "Execution": 0.85,
@@ -17,28 +17,29 @@ STAGE_WEIGHTS = {
     "Impact": 0.4,
 }
 
-
+# -----------------------------
+# ATTACK SUCCESS MODEL
+# -----------------------------
 def calculate_attack_success(scenario, detected_stage_index):
     stages = scenario.get("attack_stages", [])
 
     if detected_stage_index is None:
-        return 1.0  # fully successful attack
+        return 1.0
 
-    return detected_stage_index / len(stages)
+    return round(detected_stage_index / len(stages), 2)
 
 
+# -----------------------------
+# DETECTION SIMULATION
+# -----------------------------
 def simulate_detection(scenario):
-    """
-    Simulates SOC detection behavior
-    """
-
     difficulty = scenario.get("difficulty", "Medium")
 
     base_detection = {
         "Easy": 0.75,
         "Medium": 0.55,
         "Hard": 0.35
-    }[difficulty]
+    }.get(difficulty, 0.5)
 
     stages = scenario.get("attack_stages", [])
 
@@ -58,18 +59,17 @@ def simulate_detection(scenario):
     return detected_stage_index, mttd
 
 
+# -----------------------------
+# RESPONSE SIMULATION
+# -----------------------------
 def simulate_response(detected_stage_index, total_stages):
-    """
-    SOC response effectiveness simulation
-    """
-
     if detected_stage_index is None:
         return {
             "contained": False,
             "mttc": None
         }
 
-    containment_probability = 0.3 + (detected_stage_index / total_stages)
+    containment_probability = 0.3 + (detected_stage_index / max(total_stages, 1))
 
     contained = random.random() < containment_probability
 
@@ -81,10 +81,13 @@ def simulate_response(detected_stage_index, total_stages):
     }
 
 
+# -----------------------------
+# SINGLE SCENARIO ANALYSIS (THIS WAS MISSING)
+# -----------------------------
 def analyze_scenario(scenario):
-    """
-    Full metrics pipeline
-    """
+
+    if isinstance(scenario, str):
+        scenario = json.loads(scenario)
 
     detected_stage_index, mttd = simulate_detection(scenario)
 
@@ -99,21 +102,19 @@ def analyze_scenario(scenario):
         "attack_type": scenario.get("attack_type"),
         "difficulty": scenario.get("difficulty"),
 
-        "attack_success_rate": round(success_rate, 2),
+        "attack_success_rate": success_rate,
         "detected_stage_index": detected_stage_index,
         "mean_time_to_detect": mttd,
 
         "containment_success": response["contained"],
         "mean_time_to_contain": response["mttc"],
-
-        "timestamp": datetime.utcnow().isoformat()
     }
 
 
+# -----------------------------
+# DATASET ANALYSIS (IEEE LEVEL METRICS)
+# -----------------------------
 def analyze_dataset(scenarios):
-    """
-    Dataset-level statistics for IEEE paper
-    """
 
     results = [analyze_scenario(s) for s in scenarios]
 
@@ -136,5 +137,5 @@ def analyze_dataset(scenarios):
         "detection_rate": round(detection_rate, 3),
         "containment_rate": round(containment_rate, 3),
         "avg_mttd": round(avg_mttd, 2),
-        "results": results
+        "timestamp": datetime.utcnow().isoformat()
     }

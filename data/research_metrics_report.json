@@ -1,0 +1,8 @@
+{
+    "total_scenarios": 499,
+    "avg_attack_success_rate": 0.502,
+    "detection_rate": 0.826,
+    "containment_rate": 0.585,
+    "avg_mttd": 65.0,
+    "timestamp": "2026-05-29T20:17:13.413320"
+}
