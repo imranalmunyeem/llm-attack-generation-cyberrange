@@ -7,19 +7,20 @@ sys.path.append(
     )
 )
 
+import json
 import streamlit as st
 
-from core.llm_generator import generate_attack_scenario
+from core.scenario_builder import build_scenario
 
 st.set_page_config(
     page_title="LLM Attack Scenario Generator",
     layout="wide"
 )
 
-st.title("LLM-Assisted Attack Scenario Generator")
+st.title("LLM-Assisted Dynamic Attack Scenario Generator")
 
 st.write("""
-Generate realistic cyber attack scenarios
+Generate realistic multi-stage cyber attack scenarios
 for hybrid cyber ranges.
 """)
 
@@ -27,10 +28,10 @@ environment = st.selectbox(
     "Environment Type",
     [
         "Enterprise Network",
-        "Cloud Environment",
-        "Hybrid Infrastructure",
+        "Cloud Infrastructure",
         "Healthcare Network",
-        "Industrial Control System"
+        "Industrial Control System",
+        "Hybrid Infrastructure"
     ]
 )
 
@@ -48,22 +49,30 @@ attack_type = st.selectbox(
     [
         "Ransomware",
         "Phishing",
-        "Insider Threat",
         "APT Attack",
+        "Insider Threat",
+        "Credential Theft",
         "Data Exfiltration"
     ]
 )
 
 if st.button("Generate Scenario"):
 
-    with st.spinner("Generating attack scenario..."):
+    with st.spinner("Generating dynamic attack scenario..."):
 
-        scenario = generate_attack_scenario(
+        scenario = build_scenario(
             environment=environment,
             difficulty=difficulty,
             attack_type=attack_type
         )
 
-        st.subheader("Generated Scenario")
+        st.subheader("Generated Attack Scenario")
 
-        st.code(scenario, language="json")
+        st.json(scenario)
+
+        st.download_button(
+            label="Download Scenario JSON",
+            data=json.dumps(scenario, indent=4),
+            file_name="attack_scenario.json",
+            mime="application/json"
+        )
