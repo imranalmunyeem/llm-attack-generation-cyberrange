@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Initial Phishing Email", "label": "Initial Phishing Email", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Credential Harvesting", "label": "Credential Harvesting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Account Compromise", "label": "Account Compromise", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Data Exfiltration", "label": "Data Exfiltration", "shape": "dot", "size": 10}]);
-                  edges = new vis.DataSet([{"arrows": "to", "from": "Initial Phishing Email", "to": "Credential Harvesting", "width": 1}, {"arrows": "to", "from": "Credential Harvesting", "to": "Account Compromise", "width": 1}, {"arrows": "to", "from": "Account Compromise", "to": "Data Exfiltration", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "Reconnaissance", "label": "Reconnaissance", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Initial Access", "label": "Initial Access", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Credential Access", "label": "Credential Access", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "Execution", "label": "Execution", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "Reconnaissance", "to": "Initial Access", "width": 1}, {"arrows": "to", "from": "Initial Access", "to": "Credential Access", "width": 1}, {"arrows": "to", "from": "Credential Access", "to": "Execution", "width": 1}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
