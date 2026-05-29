@@ -51,6 +51,8 @@ def generate_attack_scenario(
         )
 
         content = response.choices[0].message.content
+        print("\nRAW LLM RESPONSE:\n")
+        print(content)
 
         valid, result = validate_json(content)
 
