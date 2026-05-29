@@ -78,5 +78,12 @@ JSON structure:
   "attack_graph": {{}}
 }}
 
-Return ONLY JSON.
+Return ONLY raw JSON.
+
+Do NOT use:
+- markdown
+- triple backticks
+- ```json
+- explanations
+- comments
 """
