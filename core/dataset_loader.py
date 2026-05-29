@@ -1,6 +1,6 @@
 import json
 
-DATASET_PATH = "data/attack_dataset_20260529_185053.jsonl"
+DATASET_PATH = "dataset/dataset.jsonl"
 
 
 def load_dataset():
@@ -8,9 +8,19 @@ def load_dataset():
 
     with open(DATASET_PATH, "r", encoding="utf-8") as f:
         for line in f:
+            line = line.strip()
+
+            if not line:
+                continue
+
             try:
-                scenarios.append(json.loads(line.strip()))
-            except:
+                obj = json.loads(line)
+
+                # safety check (ensures dict, not string)
+                if isinstance(obj, dict):
+                    scenarios.append(obj)
+
+            except json.JSONDecodeError:
                 continue
 
     return scenarios

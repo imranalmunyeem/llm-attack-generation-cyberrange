@@ -1,7 +1,7 @@
 import json
 
 # 👇 CHANGE THIS TO YOUR REAL FILE NAME
-DATASET_PATH = "dataset/attack_dataset_20260529_185053.jsonl"
+DATASET_PATH = "dataset/dataset.jsonl"
 
 count = 0
 valid = 0
