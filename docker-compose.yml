@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: juice_shop
+    restart: always
+    ports:
+      - "3000:3000"
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    restart: always
+    ports:
+      - "8080:80"
+
+  web-server:
+    image: nginx
+    container_name: enterprise_web
+    restart: always
+    ports:
+      - "8081:80"
+
+  database:
+    image: mysql:5.7
+    container_name: enterprise_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: enterprise
+    ports:
+      - "3306:3306"
