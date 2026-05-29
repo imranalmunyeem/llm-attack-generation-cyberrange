@@ -1,5 +1,4 @@
 import os
-import json
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -7,6 +6,10 @@ from core.prompt_templates import (
     BASE_SYSTEM_PROMPT,
     SCENARIO_PROMPT_TEMPLATE
 )
+
+from core.validator import validate_json
+
+from utils.logger import log_message
 
 load_dotenv()
 
@@ -21,7 +24,7 @@ def generate_attack_scenario(
     attack_type="Ransomware"
 ):
     """
-    Generate a cyber attack scenario using OpenAI.
+    Generate validated cyber attack scenario.
     """
 
     user_prompt = SCENARIO_PROMPT_TEMPLATE.format(
@@ -30,21 +33,46 @@ def generate_attack_scenario(
         attack_type=attack_type
     )
 
-    response = client.chat.completions.create(
-        model="gpt-4.1-mini",
-        messages=[
-            {
-                "role": "system",
-                "content": BASE_SYSTEM_PROMPT
-            },
-            {
-                "role": "user",
-                "content": user_prompt
+    try:
+
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": BASE_SYSTEM_PROMPT
+                },
+                {
+                    "role": "user",
+                    "content": user_prompt
+                }
+            ],
+            temperature=0.9
+        )
+
+        content = response.choices[0].message.content
+
+        valid, result = validate_json(content)
+
+        if valid:
+
+            log_message("Scenario generated successfully.")
+
+            return result
+
+        else:
+
+            log_message(f"JSON validation failed: {result}")
+
+            return {
+                "error": "Invalid JSON generated",
+                "details": result
             }
-        ],
-        temperature=0.9
-    )
 
-    content = response.choices[0].message.content
+    except Exception as e:
 
-    return content
+        log_message(f"Generation error: {e}")
+
+        return {
+            "error": str(e)
+        }
