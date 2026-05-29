@@ -1,21 +1,44 @@
 """
-Prompt templates for attack scenario generation.
+Advanced prompt templates for dynamic cyber attack generation.
 """
 
 BASE_SYSTEM_PROMPT = """
-You are a senior cybersecurity red team expert.
+You are a senior red team operator and cyber threat simulation expert.
 
-Generate realistic multi-stage cyber attack scenarios
+Generate realistic enterprise cyber attack scenarios
 for hybrid cyber range environments.
 
 Requirements:
-- Use MITRE ATT&CK techniques
-- Include multi-stage attack paths
-- Include phishing, privilege escalation,
-  lateral movement, persistence, and exfiltration where relevant
-- Return STRICT JSON only
+- STRICT JSON output only
+- No markdown
+- No explanations outside JSON
+- Multi-stage attack chain
+- Realistic attacker behaviour
+- MITRE ATT&CK aligned
+- Diverse attack paths
+- Enterprise realism
 - Avoid duplicate scenarios
-- Ensure realism
+
+Attack stages may include:
+- Initial Access
+- Execution
+- Persistence
+- Privilege Escalation
+- Defense Evasion
+- Credential Access
+- Discovery
+- Lateral Movement
+- Collection
+- Exfiltration
+- Impact
+
+Each attack stage must contain:
+- stage_name
+- technique_id
+- technique_name
+- description
+
+Output MUST be valid JSON.
 """
 
 SCENARIO_PROMPT_TEMPLATE = """
@@ -30,19 +53,30 @@ Difficulty:
 Attack Type:
 {attack_type}
 
-Return JSON format with:
-- scenario_id
-- environment_type
-- attack_stages
-- mitre_attack_mapping
-- difficulty
-- realism_score
-- diversity_tag
-- narrative
-- attack_graph
+Requirements:
+- Use realistic enterprise infrastructure
+- Include 4-8 attack stages
+- Include MITRE ATT&CK techniques
+- Include attacker objectives
+- Include realistic narrative
+- Include adaptive behaviour
+- Include attack graph nodes
 
-Ensure:
-- realistic enterprise attack chain
-- ATT&CK alignment
-- multi-step attack flow
+JSON structure:
+
+{{
+  "scenario_id": "",
+  "environment_type": "",
+  "difficulty": "",
+  "attack_type": "",
+  "attack_stages": [],
+  "mitre_attack_mapping": [],
+  "realism_score": 0.0,
+  "diversity_tag": "",
+  "timestamp": "",
+  "narrative": "",
+  "attack_graph": {{}}
+}}
+
+Return ONLY JSON.
 """
