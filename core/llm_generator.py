@@ -1,80 +1,55 @@
 import os
+import json
 from openai import OpenAI
-from dotenv import load_dotenv
+from core.config import OPENAI_API_KEY
 
-from core.prompt_templates import (
-    BASE_SYSTEM_PROMPT,
-    SCENARIO_PROMPT_TEMPLATE
-)
-
-from core.validator import validate_json
-
-from utils.logger import log_message
-
-load_dotenv()
-
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
-)
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 
-def generate_attack_scenario(
-    environment="Enterprise Network",
-    difficulty="Medium",
-    attack_type="Ransomware"
-):
-    """
-    Generate validated cyber attack scenario.
-    """
+def generate_attack_scenario(environment, difficulty, attack_type):
+    prompt = f"""
+You are a cybersecurity attack simulation generator.
 
-    user_prompt = SCENARIO_PROMPT_TEMPLATE.format(
-        environment=environment,
-        difficulty=difficulty,
-        attack_type=attack_type
+Generate a realistic multi-stage cyber attack scenario.
+
+Return ONLY valid JSON. No markdown. No backticks. No explanations.
+
+Requirements:
+- environment: {environment}
+- difficulty: {difficulty}
+- attack_type: {attack_type}
+
+Schema:
+{{
+  "scenario_id": "string",
+  "environment_type": "string",
+  "difficulty": "string",
+  "attack_type": "string",
+  "realism_score": number,
+  "narrative": "string",
+  "attack_stages": [
+    {{
+      "stage_name": "string",
+      "technique_id": "string",
+      "description": "string"
+    }}
+  ],
+  "mitre_attack_mapping": ["string"],
+  "attack_graph": {{
+    "nodes": ["string"],
+    "edges": [["string", "string"]]
+  }}
+}}
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You generate strict JSON cybersecurity datasets."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.8,
+        response_format={"type": "json_object"}  # 🔥 THIS FIXES YOUR JSON ERRORS
     )
 
-    try:
-
-        response = client.chat.completions.create(
-            model="gpt-4.1-mini",
-            messages=[
-                {
-                    "role": "system",
-                    "content": BASE_SYSTEM_PROMPT
-                },
-                {
-                    "role": "user",
-                    "content": user_prompt
-                }
-            ],
-            temperature=0.9
-        )
-
-        content = response.choices[0].message.content
-        print("\nRAW LLM RESPONSE:\n")
-        print(content)
-
-        valid, result = validate_json(content)
-
-        if valid:
-
-            log_message("Scenario generated successfully.")
-
-            return result
-
-        else:
-
-            log_message(f"JSON validation failed: {result}")
-
-            return {
-                "error": "Invalid JSON generated",
-                "details": result
-            }
-
-    except Exception as e:
-
-        log_message(f"Generation error: {e}")
-
-        return {
-            "error": str(e)
-        }
+    return response.choices[0].message.content

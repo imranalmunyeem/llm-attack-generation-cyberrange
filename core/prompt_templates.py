@@ -32,11 +32,19 @@ Attack stages may include:
 - Exfiltration
 - Impact
 
-Each attack stage must contain:
-- stage_name
-- technique_id
-- technique_name
-- description
+Each attack stage MUST contain EXACTLY:
+
+{
+  "stage_name": "",
+  "technique_id": "",
+  "technique_name": "",
+  "description": ""
+}
+
+Do NOT use:
+- "stage"
+- nested variations
+- inconsistent field names
 
 Output MUST be valid JSON.
 """
@@ -79,6 +87,7 @@ JSON structure:
 }}
 
 Return ONLY raw JSON.
+Return ONLY valid JSON. Do NOT use ``` or markdown formatting.
 
 Do NOT use:
 - markdown

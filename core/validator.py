@@ -2,33 +2,57 @@ import json
 import re
 
 
-def clean_json_response(response_text):
+def extract_json(text: str) -> str:
     """
-    Remove markdown formatting from LLM response.
+    Fully robust cleaner for LLM outputs.
+    Removes all markdown noise.
     """
 
-    # Remove ```json
-    response_text = re.sub(r"```json", "", response_text)
+    if not text:
+        return ""
 
-    # Remove ```
-    response_text = re.sub(r"```", "", response_text)
+    text = text.strip()
 
-    return response_text.strip()
+    # Remove ALL backtick blocks in any form
+    text = re.sub(r"```json", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"```", "", text)
+
+    return text.strip()
 
 
-def validate_json(response_text):
+def force_extract_json_object(text: str):
     """
-    Validate JSON response from LLM.
+    Extract first valid JSON object from messy text.
     """
 
     try:
+        start = text.find("{")
+        end = text.rfind("}")
 
-        cleaned_response = clean_json_response(response_text)
+        if start != -1 and end != -1:
+            return text[start:end+1]
 
-        data = json.loads(cleaned_response)
+    except:
+        pass
 
-        return True, data
+    return text
+
+
+def validate_json(response_text: str):
+
+    try:
+        cleaned = extract_json(response_text)
+        cleaned = force_extract_json_object(cleaned)
+
+        parsed = json.loads(cleaned)
+
+        # IMPORTANT: always return dict on success
+        return True, parsed
 
     except Exception as e:
 
-        return False, str(e)
+        return False, {
+            "error": "JSON_PARSE_ERROR",
+            "message": str(e),
+            "raw": response_text
+        }
