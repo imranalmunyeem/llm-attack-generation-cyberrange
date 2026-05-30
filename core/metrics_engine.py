@@ -110,6 +110,13 @@ def analyze_scenario(scenario):
         "mean_time_to_contain": response["mttc"],
     }
 
+def compute_complexity(scenario):
+
+    nodes = len(scenario.get("attack_graph", {}).get("nodes", []))
+    edges = len(scenario.get("attack_graph", {}).get("edges", []))
+    stages = len(scenario.get("attack_stages", []))
+
+    return nodes * 0.4 + edges * 0.4 + stages * 0.2
 
 # -----------------------------
 # DATASET ANALYSIS (IEEE LEVEL METRICS)
