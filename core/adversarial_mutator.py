@@ -1,5 +1,6 @@
 import copy
 import random
+from core.dataset_loader import load_dataset
 
 
 class AdversarialMutator:
@@ -7,57 +8,50 @@ class AdversarialMutator:
     def mutate(self, scenario):
 
         """
-        Generates adversarial variants of attack scenarios:
-        - stealth version
-        - obfuscated version
-        - expanded multi-stage version
+        Generate 3 independent adversarial variants.
         """
 
-        variants = []
-
-        base = copy.deepcopy(scenario)
-
-        variants.append(self.stealth_variant(base))
-        variants.append(self.obfuscated_variant(base))
-        variants.append(self.expanded_variant(base))
-
-        return variants
+        return [
+            self.stealth_variant(copy.deepcopy(scenario)),
+            self.obfuscated_variant(copy.deepcopy(scenario)),
+            self.expanded_variant(copy.deepcopy(scenario))
+        ]
 
     def stealth_variant(self, scenario):
 
         scenario["variant"] = "stealth"
 
         for stage in scenario.get("attack_stages", []):
-            stage["description"] += " (low-noise, stealth execution)"
+            stage["description"] += " (low-noise stealth execution)"
 
         return scenario
 
     def obfuscated_variant(self, scenario):
 
-        scenario = copy.deepcopy(scenario)
         scenario["variant"] = "obfuscated"
 
         for stage in scenario.get("attack_stages", []):
-            stage["description"] = self._obfuscate(stage["description"])
+            stage["description"] = self._shuffle_words(stage["description"])
 
         return scenario
 
     def expanded_variant(self, scenario):
 
-        scenario = copy.deepcopy(scenario)
         scenario["variant"] = "expanded"
 
-        # simulate additional stage
-        scenario["attack_stages"].append({
+        stages = scenario.get("attack_stages", [])
+
+        stages.append({
             "stage_name": "Persistence",
-            "techniques": [{"technique_id": "T1547"}],
-            "description": "Added persistence mechanism for long-term access"
+            "technique_id": "T1547",
+            "description": "Long-term persistence mechanism added for extended access"
         })
+
+        scenario["attack_stages"] = stages
 
         return scenario
 
-    def _obfuscate(self, text):
-
+    def _shuffle_words(self, text):
         words = text.split()
         random.shuffle(words)
         return " ".join(words)
@@ -65,9 +59,7 @@ class AdversarialMutator:
 
 if __name__ == "__main__":
 
-    from core.dataset_loader import load_dataset
-
-    dataset = load_dataset("dataset/dataset.jsonl")
+    dataset = load_dataset()
 
     mutator = AdversarialMutator()
 
