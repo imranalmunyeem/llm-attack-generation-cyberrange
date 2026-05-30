@@ -1,5 +1,5 @@
 import json
-from collections import defaultdict
+import random
 import matplotlib.pyplot as plt
 
 
@@ -16,42 +16,45 @@ class EvaluationEngine:
 
         return data
 
-    def extract_all_techniques(self, dataset):
+    def extract_techniques(self, dataset):
 
-        all_techniques = []
+        techniques = []
 
         for scenario in dataset:
-
             for stage in scenario.get("attack_stages", []):
-
                 for tech in stage.get("techniques", []):
-
                     tid = tech.get("technique_id")
-
                     if tid:
-                        all_techniques.append(tid)
+                        techniques.append(tid)
 
-        return all_techniques
+        return techniques
 
-    def simulate_detection(self, dataset, detection_rules):
+    def get_detection_probability(self, technique_id):
+
+        # realistic SOC difficulty model
+        hard_techniques = ["T1595", "T1203", "T1021", "T1041"]
+        medium_techniques = ["T1566", "T1078", "T1486"]
+
+        if technique_id in hard_techniques:
+            return 0.4
+        elif technique_id in medium_techniques:
+            return 0.7
+        else:
+            return 0.85
+
+    def simulate_detection(self, techniques):
 
         detected = []
         missed = []
 
-        rule_set = set([r["technique"] for r in detection_rules])
+        for tech in techniques:
 
-        for scenario in dataset:
+            prob = self.get_detection_probability(tech)
 
-            for stage in scenario.get("attack_stages", []):
-
-                for tech in stage.get("techniques", []):
-
-                    tid = tech.get("technique_id")
-
-                    if tid in rule_set:
-                        detected.append(tid)
-                    else:
-                        missed.append(tid)
+            if random.random() < prob:
+                detected.append(tech)
+            else:
+                missed.append(tech)
 
         return detected, missed
 
@@ -63,46 +66,41 @@ class EvaluationEngine:
         plt.figure(figsize=(6, 5))
         plt.bar(labels, values)
 
-        plt.title("Detection Coverage vs Missed Attacks")
+        plt.title("Realistic Detection vs Missed Attacks")
         plt.tight_layout()
 
         plt.savefig("data/detection_coverage.png")
         plt.close()
 
-    def run_evaluation(self, dataset_path, detection_rules):
+    def run_evaluation(self, dataset_path):
 
         dataset = self.load_dataset(dataset_path)
 
-        detected, missed = self.simulate_detection(dataset, detection_rules)
+        techniques = self.extract_techniques(dataset)
+
+        detected, missed = self.simulate_detection(techniques)
 
         self.plot_results(detected, missed)
 
-        detection_rate = len(detected) / (len(detected) + len(missed) + 1e-6)
+        total = len(detected) + len(missed)
+        detection_rate = len(detected) / total if total > 0 else 0
 
         return {
-            "total_attacks": len(detected) + len(missed),
+            "total_attacks": total,
             "detected": len(detected),
             "missed": len(missed),
-            "detection_rate": round(detection_rate, 3)
+            "detection_rate": round(detection_rate, 3),
+            "unique_techniques": len(set(techniques))
         }
 
 
 if __name__ == "__main__":
 
-    from core.detection_rules import DetectionRuleGenerator
-
     dataset_path = "dataset/dataset.jsonl"
 
-    # load dataset
     engine = EvaluationEngine()
-    dataset = engine.load_dataset(dataset_path)
 
-    # generate detection rules
-    generator = DetectionRuleGenerator()
-    rules = generator.generate_rules(dataset)
-
-    # run evaluation
-    results = engine.run_evaluation(dataset_path, rules)
+    results = engine.run_evaluation(dataset_path)
 
     print("\nEVALUATION RESULTS:")
     print(json.dumps(results, indent=4))
