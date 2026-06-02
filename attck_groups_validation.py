@@ -324,9 +324,21 @@ def main():
               f"Coverage={g['coverage']:.1%} ({g['matched']}/{g['group_techniques']} techs)")
 
     # Save results
+    # Convert any non-serialisable types
+    def make_serialisable(obj):
+        if isinstance(obj, dict):
+            return {k: make_serialisable(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [make_serialisable(i) for i in obj]
+        if isinstance(obj, (bool,)):
+            return bool(obj)
+        if hasattr(obj, 'item'):          # numpy scalar
+            return obj.item()
+        return obj
+
     out_path = os.path.join(OUT_DIR, "attck_groups_validation.json")
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(comparison, f, indent=2)
+        json.dump(make_serialisable(comparison), f, indent=2)
 
     print(f"\n[SAVED] Results → {out_path}")
     print("\n" + "=" * 60)
