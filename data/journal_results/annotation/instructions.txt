@@ -1,0 +1,41 @@
+
+ANNOTATION STUDY: Cyber Attack Scenario Realism Assessment
+============================================================
+
+Thank you for participating in this study. It takes approximately 30-45 minutes.
+
+You will rate 100 synthetic cyber attack scenarios on THREE dimensions.
+Each dimension is rated 1-5 using the scale below.
+
+RATING SCALES:
+  ATT&CK Alignment (Column C):
+    1 = Technique IDs are unrealistic for this attack type / environment
+    3 = Some techniques plausible, some questionable
+    5 = All technique IDs are realistic and well-chosen
+
+  Stage Sequence (Column D):
+    1 = The attack stages are in an implausible order
+    3 = Generally sensible but one or two stages seem out of place
+    5 = The attack chain follows a realistic operational sequence
+
+  Overall Realism (Column E):
+    1 = This scenario would not occur in a real incident
+    3 = Partially realistic; some elements would need refinement
+    5 = This scenario mirrors a real-world attack pattern I would expect
+
+HOW TO COMPLETE:
+  1. Open 'annotation_study_scenarios.csv' to read each scenario
+  2. Open 'annotation_template.csv' and fill in your ratings
+  3. Use the seq_id to match scenarios to ratings
+  4. Add optional comments in Column F
+
+BACKGROUND REQUIRED:
+  Basic familiarity with MITRE ATT&CK framework and cybersecurity
+  incident response concepts. If you are unfamiliar with specific
+  technique IDs, you can look them up at https://attack.mitre.org
+
+RETURN:
+  Email your completed 'annotation_template.csv' to:
+  munyeem.swe@gmail.com with subject "AdverSim Annotation Study"
+
+Your responses are used only for research purposes. Thank you!

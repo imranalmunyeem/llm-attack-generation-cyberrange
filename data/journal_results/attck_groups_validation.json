@@ -1,0 +1,9 @@
+{
+  "n_generated_pairs": 1094,
+  "n_real_pairs": 82978,
+  "n_shared_pairs": 586,
+  "overlap_fraction": 0.5356,
+  "weighted_overlap": 0.5467,
+  "spearman_rho": 0.1221,
+  "spearman_p": 0.003061,
+  "significant": 
