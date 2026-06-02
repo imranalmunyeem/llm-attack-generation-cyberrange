@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-06-01T23:31:35.200647",
+  "model": "gpt-4o-mini",
+  "n_attempted": 240,
+  "n_accepted": 240,
+  "n_rejected": 0,
+  "first_attempt_pass_rate": 1.0,
+  "first_attempt_pass_pct": "100.0%",
+  "wilson_95ci": [
+    0.9842,
+    1.0
+  ],
+  "first_attempt_fail_rate": 0.0,
+  "requery_success_rate": 0.0,
+  "total_invalid_tids": 0,
+  "invalid_tids_per_scenario": 0.0,
+  "avg_generation_time_sec": 8.311,
+  "std_generation_time_sec": 2.366,
+  "min_generation_time_sec": 5.009,
+  "max_generation_time_sec": 17.248,
+  "total_input_tokens": 78840,
+  "total_output_tokens": 108952,
+  "total_tokens": 187792,
+  "avg_tokens_per_scenario": 782.5,
+  "estimated_cost_usd": 0.077197,
+  "cost_per_scenario_usd": 0.000322,
+  "estimated_cost_490_corpus": 0.1576,
+  "by_attack_type": {
+    "Insider Threat": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 779.9,
+      "avg_time_sec": 8.581
+    },
+    "Ransomware": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 793.9,
+      "avg_time_sec": 7.826
+    },
+    "Phishing": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 767.0,
+      "avg_time_sec": 7.838
+    },
+    "APT": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 789.0,
+      "avg_time_sec": 8.997
+    }
+  },
+  "by_environment": {
+    "Cloud Infrastructure": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 785.1,
+      "avg_time_sec": 8.131
+    },
+    "ICS": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 777.5,
+      "avg_time_sec": 7.843
+    },
+    "Enterprise Network": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 781.6,
+      "avg_time_sec": 8.145
+    },
+    "Healthcare": {
+      "attempted": 60,
+      "accepted": 60,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 785.6,
+      "avg_time_sec": 9.123
+    }
+  },
+  "by_difficulty": {
+    "Hard": {
+      "attempted": 80,
+      "accepted": 80,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 801.0,
+      "avg_time_sec": 7.996
+    },
+    "Easy": {
+      "attempted": 80,
+      "accepted": 80,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 764.0,
+      "avg_time_sec": 8.188
+    },
+    "Medium": {
+      "attempted": 80,
+      "accepted": 80,
+      "first_pass_rate": 1.0,
+      "avg_tokens": 782.4,
+      "avg_time_sec": 8.747
+    }
+  }
+}
