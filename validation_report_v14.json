@@ -1,0 +1,45 @@
+{
+  "matrix_version": "enterprise-attack v14.1 (official)",
+  "corpus": "full_dataset.jsonl (1000 base scenarios)",
+  "before": {
+    "unique": 161,
+    "active": 143,
+    "deprecated": 14,
+    "invalid": 3,
+    "malformed": 1,
+    "scenarios_with_nonactive": 71,
+    "first_attempt_active_pass_pct": 92.9
+  },
+  "remediation": {
+    "remapped_occurrences": 71,
+    "dropped_occurrences": 7,
+    "rules": {
+      "T exploiting vulnerabilities": "DROP",
+      "T0882": "DROP",
+      "T1022": "T1560",
+      "T1043": "DROP",
+      "T1045": "T1027.002",
+      "T1050": "T1543.003",
+      "T1053.001": "T1053.002",
+      "T1060": "T1547.001",
+      "T1064": "DROP",
+      "T1075": "T1550.002",
+      "T1076": "T1021.001",
+      "T1081": "T1552.001",
+      "T1086": "T1059.001",
+      "T1108": "DROP",
+      "T1192": "T1566.002",
+      "T1193": "T1566.001",
+      "T1203.001": "T1203",
+      "T1582": "DROP"
+    }
+  },
+  "after": {
+    "unique": 145,
+    "active": 145,
+    "deprecated": 0,
+    "invalid": 0,
+    "malformed": 0,
+    "first_attempt_active_pass_pct": 100.0
+  }
+}
