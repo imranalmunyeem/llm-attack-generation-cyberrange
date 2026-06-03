@@ -1,0 +1,22 @@
+{
+  "embedding_backend": "tfidf",
+  "scenarios": 1000,
+  "substitutions": 6087,
+  "obfuscation_embedding_Eq7": {
+    "mean_jaccard": 0.0004,
+    "mean_substitution_cosine": 0.5007,
+    "pct_cross_tactic": 50.8,
+    "mean_realism": 0.6445,
+    "mean_detection_rate": 0.66
+  },
+  "obfuscation_random_OLD": {
+    "mean_jaccard": 0.004,
+    "mean_substitution_cosine": 0.0669,
+    "mean_realism": 0.645,
+    "mean_detection_rate": 0.672
+  },
+  "base": {
+    "mean_realism": 0.9535,
+    "mean_detection_rate": 0.6594
+  }
+}
