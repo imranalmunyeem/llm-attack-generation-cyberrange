@@ -10,7 +10,7 @@ ifeq ($(wildcard $(VENV_PYTHON)),)
 VENV_PYTHON := $(PYTHON)
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small real-baselines supplemental-robustness annotation-prepare annotation-analyze figures reproducibility-ci
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small multimodel-exact-size real-baselines supplemental-robustness annotation-prepare annotation-analyze figures reproducibility-ci reproduce submission-qa
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -28,6 +28,9 @@ scaleup-plan:
 
 scaleup-small:
 	@$(VENV_PYTHON) scaleup/corpus_scaleup.py --n 20 --run --out data/generated/scaleup
+
+scaleup-full:
+	@$(VENV_PYTHON) scaleup/corpus_scaleup.py --n 5000 --run --resume --out data/generated/scaleup --release-url "$$ADVERSIM_RELEASE_URL"
 
 registry:
 	@$(VENV_PYTHON) analysis/build_results_registry.py
@@ -56,6 +59,9 @@ multimodel-plan:
 multimodel-small:
 	@$(VENV_PYTHON) analysis/multimodel.py --run --n 48 --models gpt-4o-mini gpt-4.1-mini
 
+multimodel-exact-size:
+	@$(VENV_PYTHON) analysis/multimodel.py --run --n 150 --models gpt-4o-mini gpt-4.1-mini
+
 real-baselines:
 	@$(VENV_PYTHON) baselines/real_baselines.py
 
@@ -75,3 +81,7 @@ figures:
 
 reproducibility-ci:
 	@$(VENV_PYTHON) scripts/reproducibility_ci.py
+
+reproduce: reproducibility-ci
+
+submission-qa: reproducibility-ci pre-push-check

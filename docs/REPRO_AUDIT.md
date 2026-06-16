@@ -17,7 +17,14 @@ bash scripts/pre_push_check.sh
 
 GNU Make is not installed on this workstation, but the checked-in `Makefile` maps `make env` and `make smoke` to the same commands. The local machine also lacks Python 3.11; `scripts/create_env.py` therefore created `.venv` with Python 3.12.10 and emitted a warning. A fresh reviewer container should use Python 3.11.x.
 
-No `paper/` directory or `.tex` files are present in this checkout, so Table XVI cannot be read directly from the manuscript. The mapping below uses the scripts named in the handover and README as the audit baseline.
+This was the initial repository audit. A later closeout added a macro-wired
+`paper/` scaffold and explicit Table XVI artifacts:
+
+- `docs/TABLE_XVI_REPRODUCIBILITY.md`
+- `paper/table_xvi_reproducibility.tex`
+
+The mapping below is retained as the historical audit baseline from before
+those paper-facing files were added.
 
 ## Environment
 
@@ -91,7 +98,10 @@ The smoke uses UTF-8 stdout/stderr because existing CLI scripts print Unicode ar
 
 ## Paper Number Inventory
 
-Because the manuscript source is absent, the audit cannot verify hard-coded `.tex` literals or Table XVI directly. The current status for headline claims is:
+Because the original submitted manuscript source remains absent, this audit
+cannot verify hard-coded literals in that exact source file. The macro-wired
+scaffold is now audited by `analysis/audit_consistency.py --strict-paper`. The
+historical status for headline claims is:
 
 | Claim/key family | Status | Current evidence in checkout |
 |---|---|---|
@@ -114,4 +124,3 @@ Because the manuscript source is absent, the audit cannot verify hard-coded `.te
 3. Add deterministic seeds or output-capture around stochastic simulation metrics before treating detection/MTTD values as reproducible paper numbers.
 4. Fix direct Windows CLI encoding in scripts that print Unicode arrows, or document `PYTHONUTF8=1` for Windows users.
 5. Add manuscript source files before Phase 1/9 macro wiring and consistency auditing can be fully verified.
-

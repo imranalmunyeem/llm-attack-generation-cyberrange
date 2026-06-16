@@ -15,6 +15,7 @@ The draft uses:
 
 ```tex
 \input{generated_macros.tex}
+\input{table_xvi_reproducibility.tex}
 ```
 
 Headline numbers should be referenced only through macros from
@@ -58,5 +59,17 @@ The manuscript scaffold separates evidence streams:
 - multi-model generalization
 - human realism validation
 - reproducibility and ethics
+
+## Original Source Status
+
+The original submitted manuscript source is still absent from this checkout.
+The exact source-specific closeout is recorded in:
+
+```text
+docs/MANUSCRIPT_SOURCE_CLOSEOUT.md
+```
+
+Use that note when transferring the scaffolded presentation fixes into the
+journal template.
 
 This keeps the paper from overclaiming that one metric proves realism.

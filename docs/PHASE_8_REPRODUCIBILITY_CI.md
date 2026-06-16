@@ -17,7 +17,13 @@ Make targets:
 ```powershell
 make figures
 make reproducibility-ci
+make reproduce
+make submission-qa
 ```
+
+`make reproduce` is an alias for the offline reproducibility path expected by
+the manuscript. `make submission-qa` runs that path plus the repository pre-push
+checks.
 
 Tracked figure outputs:
 
@@ -31,3 +37,8 @@ Tracked figure outputs:
 The GitHub Actions workflow intentionally avoids `.env`, raw logs, and raw human
 ratings. It installs `requirements.lock`, runs the reproducibility command, runs
 the repository pre-push checks, and fails if regenerated tracked artifacts drift.
+
+Table XVI is now represented in two tracked files:
+
+- `docs/TABLE_XVI_REPRODUCIBILITY.md`
+- `paper/table_xvi_reproducibility.tex`
