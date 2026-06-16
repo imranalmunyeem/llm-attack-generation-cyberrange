@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV)/bin/python
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -31,3 +31,6 @@ registry:
 
 audit-consistency:
 	@$(VENV_PYTHON) analysis/audit_consistency.py
+
+stats:
+	@$(VENV_PYTHON) analysis/stats.py

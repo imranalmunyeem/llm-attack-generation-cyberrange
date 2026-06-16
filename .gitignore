@@ -48,6 +48,8 @@ release_artifacts/
 results/*
 !results/registry.json
 !results/number_audit.md
+!results/stats_table.json
+!results/stats_audit.md
 !results/scaleup_validation.json
 
 # Raw or sensitive validation inputs
