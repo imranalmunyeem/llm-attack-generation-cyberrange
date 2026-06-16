@@ -124,6 +124,11 @@ AdverSim comprises **seven integrated modules**:
 
 ## What's in the Repository
 
+Paper-facing method artifacts:
+
+- `docs/PAPER_METHODS_ALGORITHMS.md` - system architecture, pseudocode, and complexity notes.
+- `paper/methods_algorithms.tex` - LaTeX-ready methods appendix content.
+
 | Script | Purpose | Needs API Key |
 |---|---|---|
 | `core/llm_generator.py` | Core LLM scenario generation | Yes |
