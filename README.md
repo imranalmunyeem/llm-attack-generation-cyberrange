@@ -154,6 +154,9 @@ make sigma-replay-sample    # Run Sigma replay against tracked fixtures
 make scaleup-plan           # Plan a large generation run without API calls
 make scaleup-small          # Small API-backed scale-up run
 make multimodel-plan        # Plan multi-model replication
+make attack-version-robustness   # Audit corpus IDs against ATT&CK v13/v14/v15
+make external-realism-validation # Compare ATT&CK group chains with matched controls
+make supplemental-robustness     # Run supplemental validation bundle
 make pre-push-check         # Size and secret hygiene checks
 ```
 
