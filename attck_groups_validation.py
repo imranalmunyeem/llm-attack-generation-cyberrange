@@ -1,33 +1,12 @@
-"""
-attck_groups_validation.py
-==========================
-Validates AdverSim generated scenarios against real-world
-threat actor behaviour from the MITRE ATT&CK knowledge base.
+﻿"""
+Validate generated AdverSim scenarios against real-world threat actor behavior
+from the MITRE ATT&CK knowledge base.
 
-This is the most impactful single addition to the paper because it:
-  1. Provides EXTERNAL validation for the realism metric
-  2. Replaces author-constructed baselines with real threat intel
-  3. Directly answers "have scenarios been validated against real data?"
+The script downloads ATT&CK Enterprise STIX data, extracts technique sets used
+by documented groups, builds co-occurrence matrices, and reports overlap,
+Spearman correlation, and top matching groups.
 
-WHAT IT DOES:
-  1. Downloads ATT&CK v14 enterprise STIX JSON
-  2. Extracts technique sequences used by each of ~130 threat groups
-  3. Builds a "real-world co-occurrence matrix" from group data
-  4. Compares with the generated corpus co-occurrence matrix
-  5. Reports: Spearman correlation, overlap fraction, top-matching groups
-
-WHAT TO PUT IN THE PAPER:
-  New subsection VIII-N: "External Validation Against ATT&CK Group Behaviour"
-  Key claim: "The generated corpus's technique co-occurrence patterns
-              correlate significantly with real-world threat actor
-              sequences (Spearman ρ=X.XX, p<0.001)"
-
-RUN:
-  pip install mitreattack-python requests scipy --break-system-packages
-  python attck_groups_validation.py
-
-OUTPUT:
-  data/journal_results/attck_groups_validation.json
+Output defaults to an ignored generated-data directory.
 """
 
 import json
@@ -44,7 +23,7 @@ from scipy import stats
 # ─────────────────────────────────────────────
 BASE_DIR  = os.path.dirname(os.path.abspath(__file__))
 DATASET   = os.path.join(BASE_DIR, "dataset", "full_dataset.jsonl")
-OUT_DIR   = os.path.join(BASE_DIR, "data", "journal_results")
+OUT_DIR   = os.path.join(BASE_DIR, "data", "generated", "attck_groups_validation")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 ATTCK_URL = ("https://raw.githubusercontent.com/mitre/cti/master/"
@@ -341,9 +320,7 @@ def main():
         json.dump(make_serialisable(comparison), f, indent=2)
 
     print(f"\n[SAVED] Results → {out_path}")
-    print("\n" + "=" * 60)
-    print("  PASTE THESE INTO THE PAPER (Section VIII-N):")
-    print("=" * 60)
+    print("\nSummary:")
     print(f"  Technique pair overlap:  {comparison['overlap_fraction']:.1%}")
     print(f"  Weighted overlap:        {comparison['weighted_overlap']:.1%}")
     print(f"  Spearman ρ (co-occur):   {comparison['spearman_rho']:.4f}")

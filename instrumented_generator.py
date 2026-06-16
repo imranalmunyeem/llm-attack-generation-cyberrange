@@ -1,31 +1,17 @@
-"""
-instrumented_generator.py  —  v2.0  (journal edition)
-======================================================
-Drop-in replacement for core/llm_generator.py with full telemetry.
+﻿"""
+Instrumented LLM scenario generation with telemetry.
 
 Tracks per-call:
-  - Generation time (seconds)
-  - Token usage (input + output)
-  - First-attempt MITRE ID validation failure rate
-  - Re-query success / failure rate
+  - Generation time in seconds
+  - Token usage
+  - First-attempt validation pass/failure rate
+  - Re-query success/failure rate
   - Invalid technique IDs found
-  - Estimated API cost (USD)
-  - Per-dimension breakdown (by attack type, environment, difficulty)
+  - Estimated API cost
+  - Per-dimension breakdown by attack type, environment, and difficulty
 
-Recommended run for IEEE Access journal statistics:
-  python instrumented_generator.py --n 240 --out data/journal_results/
-
-n=240 rationale:
-  - 48 parameter combinations (4 types × 4 envs × 3 difficulties)
-  - 240 / 48 = 5 samples per combination
-  - Wilson score 95% CI lower bound = 0.984 (publishable precision)
-  - Cost ≈ $0.082 USD, time ≈ 30 minutes
-
-Usage:
-  from instrumented_generator import InstrumentedGenerator
-  gen = InstrumentedGenerator()
-  scenario, meta = gen.generate("Enterprise Network", "Hard", "APT")
-  gen.save_report("data/journal_results/hallucination_report.json")
+Example:
+  python instrumented_generator.py --n 240 --out data/generated/instrumented/
 """
 
 import json
@@ -416,7 +402,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description=(
             "Instrumented LLM scenario generation with full telemetry.\n"
-            "Recommended n=240 for journal-grade statistics:\n"
+            "Recommended n=240 for a balanced telemetry run:\n"
             "  5 samples per parameter combination (4 types × 4 envs × 3 diffs)\n"
             "  Wilson 95%% CI lower bound ≥ 0.984\n"
             "  Cost ≈ $0.082 USD  |  Time ≈ 30 minutes"
@@ -424,8 +410,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--n",   type=int, default=240,
-                        help="Number of scenarios (default 240 for journal quality)")
-    parser.add_argument("--out", type=str, default="data/journal_results",
+                        help="Number of scenarios (default 240)")
+    parser.add_argument("--out", type=str, default="data/generated/instrumented",
                         help="Output directory")
     parser.add_argument("--seed", type=int, default=42,
                         help="Random seed for reproducibility")
@@ -463,7 +449,7 @@ if __name__ == "__main__":
     report = gen.save_report(report_path)
     print(f"\nScenarios saved → {out_scenarios}")
     print(f"Report saved    → {report_path}")
-    print(f"\nPaste these into Table XI of the paper:")
+    print(f"\nTelemetry summary:")
     print(f"  n                          : {report['n_attempted']}")
     print(f"  First-attempt pass rate    : {report['first_attempt_pass_pct']}")
     print(f"  Wilson 95% CI              : [{report['wilson_95ci'][0]:.4f}, {report['wilson_95ci'][1]:.4f}]")

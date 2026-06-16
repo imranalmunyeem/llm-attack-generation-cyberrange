@@ -32,14 +32,7 @@ file_size() {
 }
 
 is_existing_large_exception() {
-  case "$1" in
-    data/journal_results/enterprise-attack.json)
-      return 0
-      ;;
-    *)
-      return 1
-      ;;
-  esac
+  return 1
 }
 
 info "checking file sizes"
@@ -74,9 +67,6 @@ else
     [ -f "$path" ] || continue
     case "$path" in
       .git/*|venv/*|.venv/*|*.png|*.jpg|*.jpeg|*.gif|*.pdf|*.zip|*.gz|*.dll|*.pyd|*.pyc)
-        continue
-        ;;
-      data/journal_results/enterprise-attack.json)
         continue
         ;;
     esac

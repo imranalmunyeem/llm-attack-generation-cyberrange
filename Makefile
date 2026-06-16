@@ -10,7 +10,7 @@ ifeq ($(wildcard $(VENV_PYTHON)),)
 VENV_PYTHON := $(PYTHON)
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small multimodel-exact-size real-baselines supplemental-robustness annotation-prepare annotation-analyze figures reproducibility-ci reproduce submission-qa
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small multimodel-exact-size real-baselines supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -32,12 +32,6 @@ scaleup-small:
 scaleup-full:
 	@$(VENV_PYTHON) scaleup/parallel_scaleup.py --n 5000 --shards 5 --run --out data/generated/scaleup --release-url "$$ADVERSIM_RELEASE_URL"
 
-registry:
-	@$(VENV_PYTHON) analysis/build_results_registry.py
-
-audit-consistency:
-	@$(VENV_PYTHON) analysis/audit_consistency.py
-
 stats:
 	@$(VENV_PYTHON) analysis/stats.py
 
@@ -51,7 +45,7 @@ sigma-replay-sample:
 	@$(VENV_PYTHON) detection/sigma_replay.py --rules tests/fixtures/sigma_replay/rules --events tests/fixtures/sigma_replay/events.jsonl --out results/sigma_measured_sample.json
 
 sigma-replay:
-	@$(VENV_PYTHON) detection/sigma_replay.py --rules data/journal_results/sigma_rules --events data/raw_logs/sigma_replay_events.jsonl --out results/sigma_measured.json
+	@$(VENV_PYTHON) detection/sigma_replay.py --rules data/generated/sigma_rules --events data/raw_logs/sigma_replay_events.jsonl --out results/sigma_measured.json
 
 multimodel-plan:
 	@$(VENV_PYTHON) analysis/multimodel.py --dry-run
@@ -76,12 +70,9 @@ annotation-prepare:
 annotation-analyze:
 	@$(VENV_PYTHON) annotation/harness.py analyze
 
-figures:
-	@$(VENV_PYTHON) analysis/regenerate_figures.py
-
 reproducibility-ci:
 	@$(VENV_PYTHON) scripts/reproducibility_ci.py
 
 reproduce: reproducibility-ci
 
-submission-qa: reproducibility-ci pre-push-check
+qa: reproducibility-ci pre-push-check

@@ -29,7 +29,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_RULE_DIR = ROOT / "data" / "journal_results" / "sigma_rules"
+DEFAULT_RULE_DIR = ROOT / "data" / "generated" / "sigma_rules"
 DEFAULT_EVENTS = ROOT / "data" / "raw_logs" / "sigma_replay_events.jsonl"
 DEFAULT_OUT = ROOT / "results" / "sigma_measured.json"
 

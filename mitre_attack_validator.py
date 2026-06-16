@@ -36,6 +36,22 @@ class MitreAttackValidator:
         with open(stix_path, "r", encoding="utf-8") as f:
             bundle = json.load(f)
 
+        if "objects" not in bundle and "active" in bundle:
+            for tid, raw_meta in bundle.get("active", {}).items():
+                self.active[tid] = {
+                    "name": raw_meta.get("name", ""),
+                    "description": raw_meta.get("description", ""),
+                    "tactics": raw_meta.get("tactics", []),
+                }
+            for tid, raw_meta in bundle.get("deprecated", {}).items():
+                self.deprecated[tid] = {
+                    "name": raw_meta.get("name", ""),
+                    "description": raw_meta.get("description", ""),
+                    "tactics": raw_meta.get("tactics", []),
+                }
+            self.successors.update(bundle.get("successors", {}))
+            return
+
         stixid_to_tid = {}
         for obj in bundle.get("objects", []):
             if obj.get("type") != "attack-pattern":

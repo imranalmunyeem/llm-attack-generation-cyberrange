@@ -11,9 +11,31 @@ venv/
 # VS Code
 .vscode/
 
-# Dataset
-dataset/raw/*.json
-dataset/processed/*.csv
+# Local datasets and generated artifacts
+data/
+dataset/*.jsonl
+dataset/raw/
+dataset/processed/
+dataset/manifests/
+dataset/samples/
+dataset/diverse/*.jsonl
+dataset/diverse/*.json
+full_dataset_*.jsonl
+*_corpus.jsonl
+*_corpus.json
+mutation_analysis_v*.json
+remediation_map_v*.json
+validation_report_v*.json
+
+# Private manuscript and submission material
+paper/
+paper_assets/
+docs/
+results/
+annotation/raw/
+annotation/identities/
+annotation/study_packet/
+annotation/reviewer_profile_phase7.json
 
 # Logs
 *.log
@@ -32,43 +54,12 @@ dataset/processed/*.csv
 *.keystore
 
 # Large generated corpora, caches, and release-only artifacts
-full_dataset_*.jsonl
-*_corpus.jsonl
-*_corpus.json
 !tests/fixtures/mini_corpus.json
 dataset/**/*full*.jsonl
 dataset/**/*augmented*.jsonl
 dataset/**/*mutation*.jsonl
 dataset/**/*cache*
-data/journal_results/enterprise-attack-*.json
-data/journal_results/*cache*
-data/journal_results/sigma_rules/
-data/generated/
 release_artifacts/
-results/*
-!results/registry.json
-!results/number_audit.md
-!results/stats_table.json
-!results/stats_audit.md
-!results/soc_invariance.json
-!results/soc_sensitivity_audit.md
-!results/sigma_measured.json
-!results/sigma_replay_audit.md
-!results/multimodel.json
-!results/multimodel_audit.md
-!results/real_baselines.json
-!results/real_baselines_audit.md
-!results/attack_version_robustness.json
-!results/attack_version_robustness_audit.md
-!results/external_realism_validation.json
-!results/external_realism_validation_audit.md
-!results/preregistered_blind_eval.json
-!results/preregistered_blind_eval.md
-!results/human_validation.json
-!results/human_validation_audit.md
-!results/human_ratings_summary.csv
-!results/figure_manifest.json
-!results/scaleup_validation.json
 
 # Raw or sensitive validation inputs
 data/raw_baselines/
@@ -78,8 +69,6 @@ data/soc_logs/
 data/log_replay/
 data/annotator_raw/
 data/human_ratings_raw/
-annotation/raw/
-annotation/identities/
 
 # OS Files
 .DS_Store

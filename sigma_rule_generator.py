@@ -1,30 +1,21 @@
-"""
-sigma_rule_generator.py
-=======================
-Generates Sigma-compatible detection rule skeletons from AdverSim scenarios.
-
-This directly validates the paper's "detection engineering pipeline" claim
-by producing tangible, reviewable output — not just claiming integration.
+﻿"""
+Generate Sigma-compatible detection rule skeletons from AdverSim scenarios.
 
 Sigma format: https://sigmahq.io/
 Each rule is YAML-formatted and maps directly to SIEM query templates.
 
-RUN:
+Example:
   python sigma_rule_generator.py \
     --dataset dataset/full_dataset.jsonl \
-    --out data/journal_results/sigma_rules/ \
+    --out data/generated/sigma_rules/ \
     --n 10
 
-OUTPUT:
-  data/journal_results/sigma_rules/
-    ├── summary.json          ← statistics for Table in paper
-    ├── APT_Enterprise_rule_001.yml
-    ├── Ransomware_ICS_rule_002.yml
-    └── ... (n rules)
-
-PAPER ADDITION:
-  New subsection VIII-O: "Detection Rule Generation"
-  Report: n_rules generated, log sources covered, technique coverage
+Output:
+  data/generated/sigma_rules/
+    sigma_summary.json
+    APT_Enterprise_rule_001.yml
+    Ransomware_ICS_rule_002.yml
+    ... (n rules)
 """
 
 import json
@@ -309,11 +300,11 @@ def main(dataset_path, out_dir, n=20):
     print(f"\n  Unique techniques covered: {len(technique_coverage)}")
     print(f"\n  Summary saved → {summary_path}")
     print()
-    print("  PASTE INTO PAPER (Section VIII-O):")
-    print(f"  AdverSim generates {generated} Sigma-compatible detection rule skeletons")
-    print(f"  from {len(sample)} scenarios, covering {len(technique_coverage)} ATT&CK techniques")
-    print(f"  across {len(log_source_counts)} log source categories")
-    print(f"  ({', '.join(list(log_source_counts.keys())[:4])}).")
+    print("  Summary:")
+    print(f"    scenarios sampled       : {len(sample)}")
+    print(f"    rules generated         : {generated}")
+    print(f"    ATT&CK techniques       : {len(technique_coverage)}")
+    print(f"    log source categories   : {len(log_source_counts)}")
 
     return summary
 
@@ -321,7 +312,7 @@ def main(dataset_path, out_dir, n=20):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", default="dataset/full_dataset.jsonl")
-    parser.add_argument("--out",     default="data/journal_results/sigma_rules")
+    parser.add_argument("--out",     default="data/generated/sigma_rules")
     parser.add_argument("--n",       type=int, default=20)
     args = parser.parse_args()
     main(args.dataset, args.out, args.n)

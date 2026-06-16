@@ -177,8 +177,7 @@ def find_stix_bundle(explicit: str | None) -> Path:
         candidates.append(Path(explicit))
     candidates.extend(
         [
-            ROOT / "data" / "journal_results" / "enterprise-attack-14.1.json",
-            ROOT / "data" / "journal_results" / "enterprise-attack.json",
+            ROOT / "mitre" / "enterprise-attack-14.1-active-techniques.json",
         ]
     )
     for path in candidates:
