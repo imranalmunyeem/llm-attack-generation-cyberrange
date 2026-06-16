@@ -32,6 +32,7 @@ CORPUS_PATH = ROOT / "full_dataset_v14clean.jsonl"
 INDEX_PATH = ROOT / "mitre" / "enterprise-attack-14.1-active-techniques.json"
 PACKET_DIR = ROOT / "annotation" / "study_packet"
 RAW_RATINGS_DIR = ROOT / "annotation" / "raw" / "phase7"
+REVIEWER_PROFILE_PATH = ROOT / "annotation" / "reviewer_profile_phase7.json"
 RESULTS_JSON = ROOT / "results" / "human_validation.json"
 AGGREGATE_CSV = ROOT / "results" / "human_ratings_summary.csv"
 AUDIT_MD = ROOT / "results" / "human_validation_audit.md"
@@ -213,6 +214,12 @@ def clear_aggregate_csv() -> None:
         AGGREGATE_CSV.unlink()
 
 
+def load_reviewer_profile(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def instructions_text(n: int) -> str:
     return f"""# AdverSim Phase 7 Annotation Instructions
 
@@ -332,6 +339,7 @@ def analyze(args: argparse.Namespace) -> int:
             key_rows[row["blind_id"]] = row
     ratings = load_ratings(args.ratings_dir)
     annotators = sorted({row["annotator"] for row in ratings})
+    reviewer_profile = load_reviewer_profile(args.reviewer_profile)
     if len(annotators) < args.min_annotators:
         status = {
             "status": "awaiting_human_ratings",
@@ -343,6 +351,8 @@ def analyze(args: argparse.Namespace) -> int:
             "raw_ratings_dir": str(args.ratings_dir.relative_to(ROOT) if args.ratings_dir.is_relative_to(ROOT) else args.ratings_dir),
             "note": "Do not commit completed annotator CSVs; only aggregate outputs should enter git.",
         }
+        if reviewer_profile:
+            status["reviewer_profile"] = reviewer_profile
         clear_aggregate_csv()
         RESULTS_JSON.write_text(json.dumps(status, indent=2), encoding="utf-8")
         AUDIT_MD.write_text(audit_pending_text(status), encoding="utf-8")
@@ -394,6 +404,7 @@ def analyze(args: argparse.Namespace) -> int:
         "status": "complete",
         "scenario_count": len(aggregate_rows),
         "annotator_count": len(annotators),
+        "reviewer_profile": reviewer_profile,
         "krippendorff_alpha_ordinal": {
             dim: krippendorff_alpha_ordinal(by_dim_item[dim]) for dim in DIMENSIONS
         },
@@ -516,12 +527,19 @@ Weight refit:
 ```json
 {weights}
 ```
+
+Reviewer profile:
+
+```json
+{reviewer_profile}
+```
 """.format(
         annotator_count=result["annotator_count"],
         scenario_count=result["scenario_count"],
         alpha=json.dumps(result["krippendorff_alpha_ordinal"], indent=2),
         rho=json.dumps(result["rs_vs_human_overall"], indent=2),
         weights=json.dumps(result["weight_refit"], indent=2),
+        reviewer_profile=json.dumps(result.get("reviewer_profile"), indent=2),
     )
 
 
@@ -537,6 +555,7 @@ def parse_args() -> argparse.Namespace:
     ana = sub.add_parser("analyze")
     ana.add_argument("--packet-dir", type=Path, default=PACKET_DIR)
     ana.add_argument("--ratings-dir", type=Path, default=RAW_RATINGS_DIR)
+    ana.add_argument("--reviewer-profile", type=Path, default=REVIEWER_PROFILE_PATH)
     ana.add_argument("--min-annotators", type=int, default=3)
     ana.add_argument("--seed", type=int, default=7007)
     return parser.parse_args()

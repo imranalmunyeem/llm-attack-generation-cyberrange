@@ -29,6 +29,12 @@ Analyze after at least three completed files:
 .\.venv\Scripts\python.exe annotation\harness.py analyze
 ```
 
+The analysis also reads the anonymous aggregate reviewer profile from:
+
+```text
+annotation/reviewer_profile_phase7.json
+```
+
 Tracked outputs are anonymized aggregates only:
 
 - `results/human_validation.json`
