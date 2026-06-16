@@ -64,6 +64,9 @@ results/*
 !results/external_realism_validation_audit.md
 !results/preregistered_blind_eval.json
 !results/preregistered_blind_eval.md
+!results/human_validation.json
+!results/human_validation_audit.md
+!results/human_ratings_summary.csv
 !results/scaleup_validation.json
 
 # Raw or sensitive validation inputs

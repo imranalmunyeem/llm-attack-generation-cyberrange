@@ -1,0 +1,10 @@
+{
+  "status": "awaiting_human_ratings",
+  "scenario_count": 150,
+  "annotators_received": 0,
+  "required_annotators_min": 3,
+  "recommended_annotators": 5,
+  "packet_dir": "annotation\\study_packet",
+  "raw_ratings_dir": "annotation\\raw\\phase7",
+  "note": "Do not commit completed annotator CSVs; only aggregate outputs should enter git."
+}
