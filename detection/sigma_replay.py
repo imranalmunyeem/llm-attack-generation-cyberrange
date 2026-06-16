@@ -291,6 +291,7 @@ def replay(rules: list[SigmaRule], events: list[Event]) -> dict[str, Any]:
         for tid, count in sorted(label_counts.items())
     }
     alerts: list[dict[str, Any]] = []
+    alert_count = 0
     false_positive_alerts = 0
 
     for event in events:
@@ -303,16 +304,18 @@ def replay(rules: list[SigmaRule], events: list[Event]) -> dict[str, Any]:
             if not is_true_positive:
                 false_positive_alerts += 1
 
-            alerts.append(
-                {
-                    "event_line": event.line_number,
-                    "rule_id": rule.rule_id,
-                    "rule_title": rule.title,
-                    "event_labels": sorted(event.labels),
-                    "rule_techniques": sorted(rule.techniques),
-                    "true_positive": is_true_positive,
-                }
-            )
+            alert_count += 1
+            if len(alerts) < 200:
+                alerts.append(
+                    {
+                        "event_line": event.line_number,
+                        "rule_id": rule.rule_id,
+                        "rule_title": rule.title,
+                        "event_labels": sorted(event.labels),
+                        "rule_techniques": sorted(rule.techniques),
+                        "true_positive": is_true_positive,
+                    }
+                )
 
             for tid in overlap:
                 technique_stats[tid]["matched_events"] += 1
@@ -332,7 +335,7 @@ def replay(rules: list[SigmaRule], events: list[Event]) -> dict[str, Any]:
             "has_generated_rule": tid in rule_techniques,
         }
 
-    true_positive_alerts = sum(1 for alert in alerts if alert["true_positive"])
+    true_positive_alerts = sum(stats["matched_events"] for stats in technique_stats.values())
     return {
         "schema_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -348,10 +351,11 @@ def replay(rules: list[SigmaRule], events: list[Event]) -> dict[str, Any]:
             "technique_coverage": round(len(covered) / len(labelled), 6) if labelled else 0.0,
             "event_true_positive_alerts": true_positive_alerts,
             "event_false_positive_alerts": false_positive_alerts,
+            "event_alerts_total": alert_count,
             "unsupported_labelled_techniques": unsupported,
         },
         "per_technique": per_technique,
-        "alerts": alerts,
+        "alert_examples": alerts,
         "notes": [
             "Coverage is measured only for techniques labelled in the input events.",
             "An alert is true-positive only when the event label overlaps the rule ATT&CK techniques.",

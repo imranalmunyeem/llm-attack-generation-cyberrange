@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV)/bin/python
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity sigma-replay-sample sigma-replay
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -37,6 +37,9 @@ stats:
 
 soc-sensitivity:
 	@$(VENV_PYTHON) analysis/soc_sensitivity.py
+
+otrf-normalize:
+	@$(VENV_PYTHON) detection/otrf_normalize.py --manifest data/raw_logs/phase4_source/otrf_selected/manifest.json --out data/raw_logs/sigma_replay_events.jsonl --summary data/raw_logs/sigma_replay_events_manifest.json
 
 sigma-replay-sample:
 	@$(VENV_PYTHON) detection/sigma_replay.py --rules tests/fixtures/sigma_replay/rules --events tests/fixtures/sigma_replay/events.jsonl --out results/sigma_measured_sample.json

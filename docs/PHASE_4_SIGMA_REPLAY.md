@@ -70,6 +70,16 @@ data/raw_logs/sigma_replay_events.jsonl
 That path is ignored by git. Keep the raw dataset local or release it
 separately only if licensing and privacy allow it.
 
+For OTRF atomic captures, the committed helper normalizes selected downloaded
+ZIP files into the replay contract:
+
+```powershell
+.\.venv\Scripts\python.exe detection\otrf_normalize.py --manifest data\raw_logs\phase4_source\otrf_selected\manifest.json --out data\raw_logs\sigma_replay_events.jsonl
+```
+
+OTRF atomic labels are dataset-level labels, not guaranteed per-event labels.
+Use the resulting replay primarily as technique-level coverage grounding.
+
 ## Commands
 
 Generate rules from the scenario corpus, if needed:

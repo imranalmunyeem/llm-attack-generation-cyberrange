@@ -53,6 +53,7 @@ results/*
 !results/soc_invariance.json
 !results/soc_sensitivity_audit.md
 !results/sigma_measured.json
+!results/sigma_replay_audit.md
 !results/scaleup_validation.json
 
 # Raw or sensitive validation inputs
