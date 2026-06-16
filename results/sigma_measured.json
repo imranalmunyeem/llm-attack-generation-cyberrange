@@ -1,0 +1,3277 @@
+{
+  "alert_examples": [
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 15,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 16,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 17,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 18,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 19,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 20,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 21,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 22,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 23,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 24,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 25,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 26,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 27,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 38,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 39,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 40,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 41,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 42,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 43,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 44,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 45,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 46,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 47,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 48,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 52,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 53,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 56,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 57,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 58,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 59,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 60,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 61,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 62,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 63,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 64,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 65,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 66,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 67,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 68,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 69,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 70,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 71,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 72,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 73,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 74,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 75,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 76,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 77,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 78,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 79,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 80,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 81,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 82,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 83,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 84,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 85,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 86,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 87,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 88,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 89,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 90,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 91,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 92,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 93,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 94,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 95,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 96,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 97,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 98,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 171,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 173,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 175,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 177,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 179,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 181,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 185,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 197,
+      "rule_id": "adversim-000033",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario KIMSUKY_PHL_2023)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 197,
+      "rule_id": "adversim-000036",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario lazarus_retail_phishing_001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 228,
+      "rule_id": "adversim-000033",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario KIMSUKY_PHL_2023)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 228,
+      "rule_id": "adversim-000036",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario lazarus_retail_phishing_001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 238,
+      "rule_id": "adversim-000033",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario KIMSUKY_PHL_2023)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 238,
+      "rule_id": "adversim-000036",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario lazarus_retail_phishing_001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 322,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 425,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 435,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 438,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 443,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 447,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 449,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 452,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 455,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 459,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 534,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 538,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 543,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 574,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 599,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 603,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 605,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 609,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 617,
+      "rule_id": "adversim-000033",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario KIMSUKY_PHL_2023)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 617,
+      "rule_id": "adversim-000036",
+      "rule_techniques": [
+        "T1059",
+        "T1059.001",
+        "T1566",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario lazarus_retail_phishing_001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 636,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 656,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 658,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 659,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 661,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 664,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 666,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 668,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 672,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 675,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 679,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 681,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 684,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 686,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 689,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 710,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 730,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 731,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 734,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 737,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 741,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 744,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 747,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 777,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 778,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 781,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 784,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 786,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 788,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 797,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 800,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 825,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 828,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 832,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 835,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 837,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 840,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 843,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 847,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 850,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 853,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 895,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 948,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 951,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 953,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 956,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 959,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 962,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 966,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 969,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 971,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 974,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 977,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 979,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 982,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 991,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1037,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1043,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1046,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1049,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1051,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1054,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1057,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1060,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1063,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1065,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1069,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1073,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1075,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1078,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1082,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1084,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1087,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1417,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1434,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1447,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1450,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1451,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1454,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1474,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1477,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1491,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1493,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1501,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1506,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1507,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1509,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1510,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1514,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1515,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1517,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1518,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1521,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1524,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1527,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1528,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1531,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    },
+    {
+      "event_labels": [
+        "T1547.001"
+      ],
+      "event_line": 1532,
+      "rule_id": "adversim-000032",
+      "rule_techniques": [
+        "T1059.001",
+        "T1078",
+        "T1486",
+        "T1566.001",
+        "T1595"
+      ],
+      "rule_title": "AdverSim - Phishing Attack Indicator in Enterprise Network (Scenario APT29-Legal-Phishing-Ransomware-001)",
+      "true_positive": false
+    }
+  ],
+  "generated_at": "2026-06-16T01:42:51.476469+00:00",
+  "inputs": {
+    "event_count": 56280,
+    "labelled_event_count": 56280,
+    "rule_count": 48
+  },
+  "measured": {
+    "event_alerts_total": 8843,
+    "event_false_positive_alerts": 8821,
+    "event_true_positive_alerts": 22,
+    "technique_coverage": 0.333333,
+    "techniques_detected": 2,
+    "techniques_present": 6,
+    "techniques_with_generated_rule": 6,
+    "unsupported_labelled_techniques": []
+  },
+  "notes": [
+    "Coverage is measured only for techniques labelled in the input events.",
+    "An alert is true-positive only when the event label overlaps the rule ATT&CK techniques.",
+    "Rules with wildcard-only detections are not treated as matches.",
+    "Raw logs are intentionally excluded from git; commit only this aggregate JSON output."
+  ],
+  "per_technique": {
+    "T1059": {
+      "covered": true,
+      "has_generated_rule": true,
+      "labelled_events": 2662,
+      "matched_events": 6,
+      "matching_rule_ids": [
+        "adversim-000033",
+        "adversim-000036"
+      ]
+    },
+    "T1059.001": {
+      "covered": true,
+      "has_generated_rule": true,
+      "labelled_events": 110,
+      "matched_events": 16,
+      "matching_rule_ids": [
+        "adversim-000033",
+        "adversim-000036"
+      ]
+    },
+    "T1210": {
+      "covered": false,
+      "has_generated_rule": true,
+      "labelled_events": 790,
+      "matched_events": 0,
+      "matching_rule_ids": []
+    },
+    "T1218.001": {
+      "covered": false,
+      "has_generated_rule": true,
+      "labelled_events": 1221,
+      "matched_events": 0,
+      "matching_rule_ids": []
+    },
+    "T1547.001": {
+      "covered": false,
+      "has_generated_rule": true,
+      "labelled_events": 41226,
+      "matched_events": 0,
+      "matching_rule_ids": []
+    },
+    "T1550.002": {
+      "covered": false,
+      "has_generated_rule": true,
+      "labelled_events": 10271,
+      "matched_events": 0,
+      "matching_rule_ids": []
+    }
+  },
+  "schema_version": 1
+}

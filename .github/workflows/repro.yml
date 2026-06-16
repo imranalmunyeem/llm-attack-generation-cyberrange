@@ -1,0 +1,37 @@
+name: reproducibility
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  offline-reproducibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.lock
+
+      - name: Install locked dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock
+
+      - name: Reproduce tracked figures and smoke tests
+        run: make reproduce
+
+      - name: Repository hygiene checks
+        run: make pre-push-check
+
+      - name: Check regenerated artifact drift
+        run: |
+          git diff --exit-code -- \
+            paper/generated_macros.tex \
+            paper_assets/figures \
+            results/registry.json \
+            results/number_audit.md \
+            results/figure_manifest.json

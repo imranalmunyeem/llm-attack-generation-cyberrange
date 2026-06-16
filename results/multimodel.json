@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-06-16T21:52:44+00:00",
+  "interpretation": {
+    "generalization_question": "Whether the validate-and-requery method preserves active-v14 validity and comparable coverage when the generator model changes.",
+    "scope": "Small stratified replication. Use for robustness/generalization framing, not as a replacement for the full corpus."
+  },
+  "model_rows": [
+    {
+      "accepted_rate": 1.0,
+      "base_technique_coverage": 0.238806,
+      "cost_per_accepted_scenario_usd": 0.00042301,
+      "estimated_cost_usd": 0.063451,
+      "first_attempt_active_rate": 0.966667,
+      "first_attempt_active_rate_wilson_95ci": [
+        0.9243,
+        0.9857
+      ],
+      "model": "gpt-4o-mini",
+      "n_accepted": 150,
+      "n_requested": 150,
+      "status": "completed",
+      "unique_active_v14_ids": 58,
+      "unique_base_techniques": 48,
+      "validation_path": "data\\generated\\multimodel\\gpt_4o_mini\\gpt_4o_mini_validation.json"
+    },
+    {
+      "accepted_rate": 1.0,
+      "base_technique_coverage": 0.412935,
+      "cost_per_accepted_scenario_usd": 0.00052133,
+      "estimated_cost_usd": 0.078199,
+      "first_attempt_active_rate": 0.946667,
+      "first_attempt_active_rate_wilson_95ci": [
+        0.8983,
+        0.9727
+      ],
+      "model": "gpt-4.1-mini",
+      "n_accepted": 150,
+      "n_requested": 150,
+      "status": "completed",
+      "unique_active_v14_ids": 135,
+      "unique_base_techniques": 83,
+      "validation_path": "data\\generated\\multimodel\\gpt_4_1_mini\\gpt_4_1_mini_validation.json"
+    }
+  ],
+  "models_completed": [
+    "gpt-4o-mini",
+    "gpt-4.1-mini"
+  ],
+  "models_requested": [
+    "gpt-4o-mini",
+    "gpt-4.1-mini"
+  ],
+  "replication_n_per_model": 150,
+  "schema_version": 1,
+  "union_unique_active_v14_ids": 151
+}

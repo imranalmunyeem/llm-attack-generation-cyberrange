@@ -124,6 +124,20 @@ AdverSim comprises **seven integrated modules**:
 
 ## What's in the Repository
 
+Paper-facing method artifacts:
+
+- `docs/PAPER_METHODS_ALGORITHMS.md` - system architecture, pseudocode, and complexity notes.
+- `paper/methods_algorithms.tex` - LaTeX-ready methods appendix content.
+- `docs/PAPER_VALIDITY_ETHICS_REPRODUCIBILITY.md` - threats to validity, ethics, artifact availability, ablation table, and data/model card.
+- `paper/validity_ethics_reproducibility.tex` - LaTeX-ready validity, ethics, and reproducibility section.
+- `docs/PHASE_9_MANUSCRIPT_MACRO_WIRING.md` - manuscript macro-wiring workflow and CI drift checks.
+- `paper/manuscript_draft.tex` - macro-wired manuscript scaffold.
+- `docs/TABLE_XVI_REPRODUCIBILITY.md` - Table XVI reproducibility map.
+- `paper/table_xvi_reproducibility.tex` - LaTeX-ready Table XVI.
+- `docs/SUBMISSION_CHECKLIST.md` - pre-submission QA checklist.
+- `docs/ANTICIPATED_REVIEWERS.md` - anticipated reviewer concerns and concise responses.
+- `docs/PHASE_CLOSEOUT_AUDIT.md` - closeout status for the remaining phases.
+
 | Script | Purpose | Needs API Key |
 |---|---|---|
 | `core/llm_generator.py` | Core LLM scenario generation | Yes |
@@ -642,29 +656,38 @@ pip install -r requirements.txt
 
 ## Reproducing the Paper
 
-All experiments in the IEEE Access submission are fully reproducible:
+The tracked aggregate results, figures, registry, manuscript macros, and smoke
+pipeline can be reproduced offline:
 
 ```bash
-# Step 1: Install dependencies
-pip install -r requirements.txt
-
-# Step 2: Run all 10 experiments (no API key needed)
-python journal_experiments.py
-
-# Step 3: Validate against real threat actors (requires internet)
-python attck_groups_validation.py
-
-# Step 4: Generate Sigma detection rules
-python sigma_rule_generator.py --n 50
-
-# Step 5: (Optional) Measure LLM reliability
-python instrumented_generator.py --n 240
-
-# Step 6: (Optional) Generate diversity-aware scenarios
-python diverse_generator.py --n 510
+make env
+make reproduce
 ```
 
-All figures are saved to `data/journal_results/figures/` and all numerical results to `data/journal_results/all_results.json`.
+Before submission, run:
+
+```bash
+make submission-qa
+```
+
+Fresh full generation is intentionally separate because it may spend API budget
+and writes large ignored corpora:
+
+```bash
+# Plan the 5,000-scenario Phase 0.5 corpus without API calls
+make scaleup-plan
+
+# Run the full paid API generation and resume if interrupted
+make scaleup-full
+
+# Run the exact-size Phase 5 multi-model replication
+make multimodel-exact-size
+```
+
+Set `ADVERSIM_RELEASE_URL` before `make scaleup-full` if the citable release URL
+is already known. Otherwise, upload the ignored full corpus after generation and
+record the release URL in the manifest before claiming a public full-scale
+artifact.
 
 ---
 
