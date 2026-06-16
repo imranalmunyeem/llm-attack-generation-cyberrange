@@ -1,0 +1,86 @@
+{
+  "blind_id_method": "sha256(seed:group:index) truncated to 16 hex chars",
+  "blinded_row_count": 120,
+  "frozen_metrics": [
+    "R(S)-style realism = 0.4 active-ID validity + 0.35 structure + 0.25 group transition coherence",
+    "Technique-prior detection proxy from ATT&CK data-source counts; descriptive only"
+  ],
+  "group_summary_after_reveal": {
+    "adversim": {
+      "detection_proxy": {
+        "max": 0.996431,
+        "mean": 0.937589,
+        "min": 0.792619,
+        "n": 40
+      },
+      "realism": {
+        "max": 0.958333,
+        "mean": 0.88244,
+        "min": 0.7975,
+        "n": 40
+      }
+    },
+    "random_control": {
+      "detection_proxy": {
+        "max": 1.0,
+        "mean": 0.996116,
+        "min": 0.879883,
+        "n": 40
+      },
+      "realism": {
+        "max": 0.875,
+        "mean": 0.789206,
+        "min": 0.6975,
+        "n": 40
+      }
+    },
+    "third_party_report": {
+      "detection_proxy": {
+        "max": 1.0,
+        "mean": 0.995792,
+        "min": 0.86725,
+        "n": 40
+      },
+      "realism": {
+        "max": 1.0,
+        "mean": 0.977183,
+        "min": 0.916667,
+        "n": 40
+      }
+    }
+  },
+  "hypotheses": [
+    {
+      "decision_rule": "supported if mean R(S)_third_party_report > mean R(S)_random_control by at least 0.05",
+      "id": "H1",
+      "result": 0.18797700000000006,
+      "statement": "Third-party report-derived scenarios score higher on R(S) than matched random controls.",
+      "supported": true
+    },
+    {
+      "decision_rule": "supported if absolute mean difference is <= 0.10",
+      "id": "H2",
+      "result": 0.09474300000000002,
+      "statement": "AdverSim scenarios remain comparable to third-party report scenarios on R(S).",
+      "supported": true
+    },
+    {
+      "decision_rule": "descriptive only; no empirical detection claim",
+      "id": "H3",
+      "result": {
+        "adversim": 0.937589,
+        "random_control": 0.996116,
+        "third_party_report": 0.995792
+      },
+      "statement": "Technique-prior detection proxy is evaluated blinded and reported separately from realism.",
+      "supported": null
+    }
+  ],
+  "notes": [
+    "Group labels are not needed to compute per-row scores.",
+    "This harness supports preregistered/blinded evaluation; it is not a substitute for independent human annotation."
+  ],
+  "preregistered_before_manual_review": true,
+  "schema_version": 1,
+  "seed": 60616
+}

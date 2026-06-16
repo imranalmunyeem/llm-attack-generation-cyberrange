@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV)/bin/python
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small real-baselines
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small real-baselines supplemental-robustness
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -55,3 +55,8 @@ multimodel-small:
 
 real-baselines:
 	@$(VENV_PYTHON) baselines/real_baselines.py
+
+supplemental-robustness:
+	@$(VENV_PYTHON) analysis/attack_version_robustness.py
+	@$(VENV_PYTHON) analysis/external_realism_validation.py
+	@$(VENV_PYTHON) analysis/preregistered_blind_eval.py

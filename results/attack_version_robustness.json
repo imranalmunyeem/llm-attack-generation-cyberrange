@@ -1,0 +1,55 @@
+{
+  "corpus": "full_dataset_v14clean.jsonl",
+  "method": "Validate every corpus ATT&CK ID against active Enterprise attack-pattern IDs in each available STIX release.",
+  "schema_version": 1,
+  "versions": [
+    {
+      "active_base_technique_count": 196,
+      "active_technique_count": 607,
+      "base_coverage": 0.5,
+      "inactive_ids_sample": [],
+      "scenario_all_ids_active_count": 1000,
+      "scenario_all_ids_active_rate": 1.0,
+      "scenario_count": 1000,
+      "source_url": "https://raw.githubusercontent.com/mitre/cti/ATT%26CK-v13.1/enterprise-attack/enterprise-attack.json",
+      "status": "completed",
+      "unique_id_active_rate": 1.0,
+      "unique_ids_active_in_version": 145,
+      "unique_ids_in_corpus": 145,
+      "unique_ids_inactive_in_version": 0,
+      "version": "v13.1"
+    },
+    {
+      "active_base_technique_count": 201,
+      "active_technique_count": 625,
+      "base_coverage": 0.487562,
+      "inactive_ids_sample": [],
+      "scenario_all_ids_active_count": 1000,
+      "scenario_all_ids_active_rate": 1.0,
+      "scenario_count": 1000,
+      "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/v14.1/enterprise-attack/enterprise-attack.json",
+      "status": "completed",
+      "unique_id_active_rate": 1.0,
+      "unique_ids_active_in_version": 145,
+      "unique_ids_in_corpus": 145,
+      "unique_ids_inactive_in_version": 0,
+      "version": "v14.1"
+    },
+    {
+      "active_base_technique_count": 202,
+      "active_technique_count": 637,
+      "base_coverage": 0.485149,
+      "inactive_ids_sample": [],
+      "scenario_all_ids_active_count": 1000,
+      "scenario_all_ids_active_rate": 1.0,
+      "scenario_count": 1000,
+      "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/v15.1/enterprise-attack/enterprise-attack.json",
+      "status": "completed",
+      "unique_id_active_rate": 1.0,
+      "unique_ids_active_in_version": 145,
+      "unique_ids_in_corpus": 145,
+      "unique_ids_inactive_in_version": 0,
+      "version": "v15.1"
+    }
+  ]
+}

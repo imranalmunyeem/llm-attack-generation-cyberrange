@@ -58,6 +58,12 @@ results/*
 !results/multimodel_audit.md
 !results/real_baselines.json
 !results/real_baselines_audit.md
+!results/attack_version_robustness.json
+!results/attack_version_robustness_audit.md
+!results/external_realism_validation.json
+!results/external_realism_validation_audit.md
+!results/preregistered_blind_eval.json
+!results/preregistered_blind_eval.md
 !results/scaleup_validation.json
 
 # Raw or sensitive validation inputs
