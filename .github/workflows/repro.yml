@@ -22,7 +22,7 @@ jobs:
           python -m pip install -r requirements.lock
 
       - name: Reproduce tracked figures and smoke tests
-        run: make reproducibility-ci
+        run: make reproduce
 
       - name: Repository hygiene checks
         run: make pre-push-check

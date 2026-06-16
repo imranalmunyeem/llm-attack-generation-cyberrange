@@ -17,7 +17,7 @@ offline checks from API-dependent regeneration.
 | Phase 4 Sigma replay | `make sigma-replay` | `results/sigma_measured.json` | Labelled event dataset under `data/raw_logs/` | Runnable when logs are provided |
 | Real public baselines | `make real-baselines` | `results/real_baselines.json`, audit note | Tracked/public metadata | Ready |
 | Cross-version and external validity | `make supplemental-robustness` | ATT&CK robustness, preregistered blind-eval, external realism outputs | Tracked/public inputs | Ready |
-| Human realism validation | `make annotation-analyze` | `results/human_realism_validation.json`, audit note, figure | Anonymized reviewer ratings | Ready with provided ratings |
+| Human realism validation | `make annotation-analyze` | `results/human_validation.json`, `results/human_validation_audit.md`, figure | Anonymized reviewer ratings | Ready with provided ratings |
 
 For the paper, use the LaTeX version in `paper/table_xvi_reproducibility.tex`.
 The table intentionally avoids claiming that API-dependent full regeneration was
