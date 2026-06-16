@@ -67,6 +67,7 @@ results/*
 !results/human_validation.json
 !results/human_validation_audit.md
 !results/human_ratings_summary.csv
+!results/figure_manifest.json
 !results/scaleup_validation.json
 
 # Raw or sensitive validation inputs

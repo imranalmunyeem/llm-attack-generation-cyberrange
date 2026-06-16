@@ -6,8 +6,11 @@ VENV_PYTHON := $(VENV)/Scripts/python.exe
 else
 VENV_PYTHON := $(VENV)/bin/python
 endif
+ifeq ($(wildcard $(VENV_PYTHON)),)
+VENV_PYTHON := $(PYTHON)
+endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small real-baselines supplemental-robustness annotation-prepare annotation-analyze
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small real-baselines supplemental-robustness annotation-prepare annotation-analyze figures reproducibility-ci
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -66,3 +69,9 @@ annotation-prepare:
 
 annotation-analyze:
 	@$(VENV_PYTHON) annotation/harness.py analyze
+
+figures:
+	@$(VENV_PYTHON) analysis/regenerate_figures.py
+
+reproducibility-ci:
+	@$(VENV_PYTHON) scripts/reproducibility_ci.py
