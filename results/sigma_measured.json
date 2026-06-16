@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "status": "needs_dataset",
+  "message": "Run detection/sigma_replay.py with labelled defensive event logs to populate measured coverage. Raw logs are ignored by git; only aggregate replay output should be committed.",
+  "expected_command": ".\\.venv\\Scripts\\python.exe detection\\sigma_replay.py --rules data\\journal_results\\sigma_rules --events data\\raw_logs\\sigma_replay_events.jsonl --out results\\sigma_measured.json"
+}

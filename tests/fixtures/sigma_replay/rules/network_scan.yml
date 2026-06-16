@@ -1,0 +1,15 @@
+title: AdverSim Fixture - Network Scan
+id: adversim-fixture-003
+status: test
+logsource:
+  category: network_connection
+  product: any
+  service: firewall
+detection:
+  keywords:
+    - nmap
+    - scan
+  condition: keywords
+metadata:
+  techniques:
+    - T1046

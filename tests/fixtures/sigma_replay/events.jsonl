@@ -1,0 +1,5 @@
+{"@timestamp":"2026-01-01T00:00:01Z","technique_id":"T1059.001","logsource":{"category":"process_creation","product":"windows","service":"powershell"},"CommandLine":"powershell.exe -enc ZQBjAGgAbwA=","Image":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"}
+{"@timestamp":"2026-01-01T00:00:02Z","attack":{"technique":{"id":"T1003.001"}},"logsource":{"category":"process_access","product":"windows","service":"sysmon"},"TargetImage":"C:\\Windows\\System32\\lsass.exe","SourceImage":"C:\\Tools\\procdump.exe","Message":"procdump access to lsass"}
+{"@timestamp":"2026-01-01T00:00:03Z","technique_id":"T1046","logsource":{"category":"network_connection","product":"any","service":"firewall"},"message":"internal host launches nmap network scan"}
+{"@timestamp":"2026-01-01T00:00:04Z","technique_id":"T1486","logsource":{"category":"file_event","product":"windows","service":"sysmon"},"message":"bulk file encryption with .locked extension and readme.txt ransom note"}
+{"@timestamp":"2026-01-01T00:00:05Z","logsource":{"category":"process_creation","product":"windows","service":"sysmon"},"CommandLine":"whoami.exe /all"}

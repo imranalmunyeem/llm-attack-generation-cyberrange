@@ -1,0 +1,16 @@
+title: AdverSim Fixture - PowerShell Execution
+id: adversim-fixture-001
+status: test
+logsource:
+  category: process_creation
+  product: windows
+  service: powershell
+detection:
+  keywords:
+    - powershell
+    - encoded
+    - -enc
+  condition: keywords
+metadata:
+  techniques:
+    - T1059.001

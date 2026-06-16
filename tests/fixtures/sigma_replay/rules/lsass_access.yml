@@ -1,0 +1,15 @@
+title: AdverSim Fixture - LSASS Access
+id: adversim-fixture-002
+status: test
+logsource:
+  category: process_access
+  product: windows
+  service: sysmon
+detection:
+  keywords:
+    - lsass
+    - procdump
+  condition: keywords
+metadata:
+  techniques:
+    - T1003.001

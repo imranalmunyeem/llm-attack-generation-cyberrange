@@ -1,0 +1,16 @@
+title: AdverSim Fixture - Ransomware Impact
+id: adversim-fixture-004
+status: test
+logsource:
+  category: file_event
+  product: windows
+  service: sysmon
+detection:
+  keywords:
+    - .locked
+    - readme.txt
+    - encrypt
+  condition: keywords
+metadata:
+  techniques:
+    - T1486
