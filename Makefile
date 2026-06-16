@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV)/bin/python
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small real-baselines
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -52,3 +52,6 @@ multimodel-plan:
 
 multimodel-small:
 	@$(VENV_PYTHON) analysis/multimodel.py --run --n 48 --models gpt-4o-mini gpt-4.1-mini
+
+real-baselines:
+	@$(VENV_PYTHON) baselines/real_baselines.py

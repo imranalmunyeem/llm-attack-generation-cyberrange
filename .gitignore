@@ -56,9 +56,12 @@ results/*
 !results/sigma_replay_audit.md
 !results/multimodel.json
 !results/multimodel_audit.md
+!results/real_baselines.json
+!results/real_baselines_audit.md
 !results/scaleup_validation.json
 
 # Raw or sensitive validation inputs
+data/raw_baselines/
 data/raw_logs/
 data/telemetry/
 data/soc_logs/
