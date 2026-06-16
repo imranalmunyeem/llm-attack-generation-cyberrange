@@ -10,7 +10,7 @@ ifeq ($(wildcard $(VENV_PYTHON)),)
 VENV_PYTHON := $(PYTHON)
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small multimodel-exact-size real-baselines supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small multimodel-exact-size real-baselines attack-version-robustness supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -59,8 +59,10 @@ multimodel-exact-size:
 real-baselines:
 	@$(VENV_PYTHON) baselines/real_baselines.py
 
-supplemental-robustness:
+attack-version-robustness:
 	@$(VENV_PYTHON) analysis/attack_version_robustness.py
+
+supplemental-robustness: attack-version-robustness
 	@$(VENV_PYTHON) analysis/external_realism_validation.py
 	@$(VENV_PYTHON) analysis/preregistered_blind_eval.py
 
