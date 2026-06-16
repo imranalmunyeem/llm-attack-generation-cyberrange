@@ -1,0 +1,211 @@
+{
+  "_meta": {
+    "builder": "analysis/build_results_registry.py",
+    "policy": "Values are included only with an explicit local source and status."
+  },
+  "corpus.active_base_denominator": {
+    "script": "mitre_attack_validator.py",
+    "source": "mitre/enterprise-attack-14.1-active-techniques.json",
+    "status": "reproducible",
+    "value": 201
+  },
+  "corpus.base_technique_coverage": {
+    "n": 201,
+    "script": "analysis/build_results_registry.py",
+    "source": "full_dataset_v14clean.jsonl",
+    "status": "reproducible",
+    "value": 0.48756218905472637
+  },
+  "corpus.scenario_count": {
+    "n": 1000,
+    "script": "analysis/build_results_registry.py",
+    "source": "full_dataset_v14clean.jsonl",
+    "status": "reproducible",
+    "value": 1000
+  },
+  "corpus.unique_active_v14": {
+    "n": 1000,
+    "script": "mitre_attack_validator.py",
+    "source": "full_dataset_v14clean.jsonl",
+    "status": "reproducible",
+    "value": 145
+  },
+  "corpus.unique_base_techniques": {
+    "n": 1000,
+    "script": "mitre_attack_validator.py",
+    "source": "full_dataset_v14clean.jsonl",
+    "status": "reproducible",
+    "value": 98
+  },
+  "cost.per_scenario_usd": {
+    "n": 240,
+    "script": "instrumented_generator.py",
+    "source": "data/journal_results/hallucination_report.json",
+    "status": "cached_reproducible",
+    "value": 0.000322
+  },
+  "det.env.cloud": {
+    "ci": [
+      0.636,
+      0.703
+    ],
+    "n": 149,
+    "note": "journal_experiments.py is absent in this checkout",
+    "script": null,
+    "source": "README.md Detection Performance by Environment",
+    "status": "documented_not_regenerated",
+    "value": 0.671
+  },
+  "det.env.enterprise": {
+    "ci": [
+      0.628,
+      0.669
+    ],
+    "n": 412,
+    "note": "journal_experiments.py is absent in this checkout",
+    "script": null,
+    "source": "README.md Detection Performance by Environment",
+    "status": "documented_not_regenerated",
+    "value": 0.649
+  },
+  "det.env.healthcare": {
+    "ci": [
+      0.618,
+      0.676
+    ],
+    "n": 202,
+    "note": "journal_experiments.py is absent in this checkout",
+    "script": null,
+    "source": "README.md Detection Performance by Environment",
+    "status": "documented_not_regenerated",
+    "value": 0.649
+  },
+  "det.env.ics": {
+    "ci": [
+      0.65,
+      0.705
+    ],
+    "n": 237,
+    "note": "journal_experiments.py is absent in this checkout",
+    "script": null,
+    "source": "README.md Detection Performance by Environment",
+    "status": "documented_not_regenerated",
+    "value": 0.678
+  },
+  "extval.spearman_rho": {
+    "n": 150,
+    "p": 0.00013828157050134904,
+    "script": "attck_groups_validation.py",
+    "source": "data/journal_results/attck_groups_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.1248
+  },
+  "extval.transition_corroboration": {
+    "n": 928,
+    "script": "attck_groups_validation.py",
+    "source": "data/journal_results/attck_groups_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.5582
+  },
+  "extval.transition_corroboration_weighted": {
+    "n": 928,
+    "script": "attck_groups_validation.py",
+    "source": "data/journal_results/attck_groups_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.5703
+  },
+  "gen.first_attempt_active_ci_high": {
+    "n": 1000,
+    "script": "mitre_attack_validator.py",
+    "source": "validation_report_v14.json:before",
+    "status": "cached_reproducible",
+    "value": 0.9433
+  },
+  "gen.first_attempt_active_ci_low": {
+    "n": 1000,
+    "script": "mitre_attack_validator.py",
+    "source": "validation_report_v14.json:before",
+    "status": "cached_reproducible",
+    "value": 0.9114
+  },
+  "gen.first_attempt_active_rate": {
+    "ci": [
+      0.9114,
+      0.9433
+    ],
+    "n": 1000,
+    "script": "mitre_attack_validator.py",
+    "source": "validation_report_v14.json:before",
+    "status": "cached_reproducible",
+    "value": 0.929
+  },
+  "gen.instrumented_pass_rate": {
+    "ci": [
+      0.9842,
+      1.0
+    ],
+    "n": 240,
+    "script": "instrumented_generator.py",
+    "source": "data/journal_results/hallucination_report.json",
+    "status": "cached_reproducible",
+    "value": 1.0
+  },
+  "graphcomplexity.pearson_r": {
+    "note": "No journal_experiments.py/all_results.json source exists in this checkout",
+    "script": null,
+    "source": "not found",
+    "status": "missing",
+    "value": null
+  },
+  "graphcomplexity.pearson_r2": {
+    "note": "No journal_experiments.py/all_results.json source exists in this checkout",
+    "script": null,
+    "source": "not found",
+    "status": "missing",
+    "value": null
+  },
+  "mutation.obfuscation_mean_cosine": {
+    "n": 6087,
+    "script": "run_mutation_analysis.py",
+    "source": "mutation_analysis_v14.json",
+    "status": "cached_reproducible",
+    "value": 0.5007
+  },
+  "mutation.obfuscation_mean_jaccard": {
+    "n": 1000,
+    "script": "run_mutation_analysis.py",
+    "source": "mutation_analysis_v14.json",
+    "status": "cached_reproducible",
+    "value": 0.0004
+  },
+  "realism.cv_mean": {
+    "n": 1000,
+    "note": "journal_experiments.py is absent in this checkout",
+    "script": null,
+    "source": "README.md Realism Metric table",
+    "status": "documented_not_regenerated",
+    "value": 0.945
+  },
+  "realism.cv_sd": {
+    "n": 1000,
+    "note": "journal_experiments.py is absent in this checkout",
+    "script": null,
+    "source": "README.md Key Results",
+    "status": "documented_not_regenerated",
+    "value": 0.005
+  },
+  "realism.full_corpus_mean": {
+    "n": 1000,
+    "script": "run_mutation_analysis.py",
+    "source": "mutation_analysis_v14.json",
+    "status": "cached_reproducible",
+    "value": 0.9535
+  },
+  "sigma.rules_generated": {
+    "note": "README value; smoke validates generator structure but not this exact full-corpus count",
+    "script": "sigma_rule_generator.py",
+    "source": "README.md Key Results",
+    "status": "documented_not_regenerated",
+    "value": 48
+  }
+}
