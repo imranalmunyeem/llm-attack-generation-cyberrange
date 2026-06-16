@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV)/bin/python
 endif
 
-.PHONY: env smoke pre-push-check
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -19,3 +19,9 @@ smoke:
 
 pre-push-check:
 	@bash scripts/pre_push_check.sh
+
+scaleup-plan:
+	@$(VENV_PYTHON) scaleup/corpus_scaleup.py --n 5000 --dry-run
+
+scaleup-small:
+	@$(VENV_PYTHON) scaleup/corpus_scaleup.py --n 20 --run --out data/generated/scaleup

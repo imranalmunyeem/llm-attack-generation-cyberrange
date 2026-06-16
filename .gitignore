@@ -43,7 +43,10 @@ dataset/**/*cache*
 data/journal_results/enterprise-attack-*.json
 data/journal_results/*cache*
 data/journal_results/sigma_rules/
-results/
+data/generated/
+release_artifacts/
+results/*
+!results/scaleup_validation.json
 
 # Raw or sensitive validation inputs
 data/raw_logs/
