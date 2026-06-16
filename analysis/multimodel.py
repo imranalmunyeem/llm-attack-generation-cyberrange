@@ -200,10 +200,11 @@ def write_audit(summary: dict[str, Any], path: Path) -> None:
             "",
             "## Paper Framing",
             "",
-            "Report this as a small stratified cross-model replication. The central",
+            "Report this as an exact-size stratified cross-model replication when",
+            "`replication_n_per_model` is 150 or higher. The central",
             "claim is method robustness: the active-v14 validation and requery loop is",
-            "model-agnostic. Do not claim that a 48-scenario replication fully",
-            "characterizes any model family.",
+            "model-agnostic. Do not overclaim that this fully characterizes any",
+            "model family.",
             "",
         ]
     )

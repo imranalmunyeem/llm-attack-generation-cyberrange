@@ -10,8 +10,8 @@ Claim family & Command & Primary artifact & Status \\
 \midrule
 Registry, macros, and figure refresh & \texttt{make reproduce} & \texttt{results/registry.json}, \texttt{paper/generated\_macros.tex}, figures, and manifest & Offline, ready \\
 Pre-submission QA & \texttt{make submission-qa} & Reproducibility CI plus repository pre-push checks & Offline, ready \\
-Full scale-up corpus & \texttt{make scaleup-full} & Ignored full JSONL corpus, public sample, manifest, and validation summary & API-dependent runnable path \\
-Exact-size multi-model replication & \texttt{make multimodel-exact-size} & Per-model ignored corpora plus tracked aggregate table and audit note & API-dependent runnable path \\
+Full scale-up corpus & \texttt{make scaleup-full} & Ignored full JSONL corpus, public sample, manifest, and validation summary & Completed locally; release upload pending \\
+Exact-size multi-model replication & \texttt{make multimodel-exact-size} & Per-model ignored corpora plus tracked aggregate table and audit note & Completed locally \\
 Sigma replay grounding & \texttt{make sigma-replay} & Replay coverage and alert summary & Requires labelled event logs \\
 Human realism validation & \texttt{make annotation-analyze} & Blinded human-rating aggregate and audit note & Ready with anonymized ratings \\
 \bottomrule

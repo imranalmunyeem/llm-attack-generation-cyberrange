@@ -11,14 +11,15 @@ and are intentionally not committed.
 
 | Model | n accepted | First-attempt active-v14 | Unique active IDs | Base techniques | Cost/scenario |
 |---|---:|---:|---:|---:|---:|
-| gpt-4o-mini | 48 | 93.8% [0.8316, 0.9785] | 35 | 29 | $0.000445 |
-| gpt-4.1-mini | 47 | 97.9% [0.891, 0.9963] | 81 | 57 | $0.000526 |
+| gpt-4o-mini | 150 | 96.7% [0.9243, 0.9857] | 58 | 48 | $0.000423 |
+| gpt-4.1-mini | 150 | 94.7% [0.8983, 0.9727] | 135 | 83 | $0.000521 |
 
-Union unique active v14 IDs across completed models: 90.
+Union unique active v14 IDs across completed models: 151.
 
 ## Paper Framing
 
-Report this as a small stratified cross-model replication. The central
+Report this as an exact-size stratified cross-model replication when
+`replication_n_per_model` is 150 or higher. The central
 claim is method robustness: the active-v14 validation and requery loop is
-model-agnostic. Do not claim that a 48-scenario replication fully
-characterizes any model family.
+model-agnostic. Do not overclaim that this fully characterizes any
+model family.

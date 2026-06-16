@@ -12,8 +12,8 @@ offline checks from API-dependent regeneration.
 | Figure regeneration | `make figures` | `paper_assets/figures/`, `results/figure_manifest.json` | Tracked aggregate files | Ready |
 | Full offline reproducibility | `make reproduce` | Registry, number audit, figures, smoke check | No API key or raw logs | Ready |
 | Pre-submission QA | `make submission-qa` | Reproducibility CI plus pre-push checks | No API key or raw logs | Ready |
-| Phase 0.5 full corpus scale-up | `make scaleup-full` | `data/generated/scaleup/`, `dataset/samples/scaleup_sample.jsonl`, `dataset/manifests/scaleup_MANIFEST.json`, `results/scaleup_validation.json` | OpenAI API key; optional `ADVERSIM_RELEASE_URL` after upload | Runnable; requires paid API run and release URL |
-| Phase 5 exact-size replication | `make multimodel-exact-size` | `data/generated/multimodel/`, `results/multimodel.json`, `results/multimodel_audit.md` | OpenAI API key | Runnable; requires paid API run |
+| Phase 0.5 full corpus scale-up | `make scaleup-full` | `data/generated/scaleup/`, `dataset/samples/scaleup_sample.jsonl`, `dataset/manifests/scaleup_MANIFEST.json`, `results/scaleup_validation.json` | OpenAI API key; release URL after upload | Completed locally; release upload pending |
+| Phase 5 exact-size replication | `make multimodel-exact-size` | `data/generated/multimodel/`, `results/multimodel.json`, `results/multimodel_audit.md` | OpenAI API key | Completed locally |
 | Phase 4 Sigma replay | `make sigma-replay` | `results/sigma_measured.json` | Labelled event dataset under `data/raw_logs/` | Runnable when logs are provided |
 | Real public baselines | `make real-baselines` | `results/real_baselines.json`, audit note | Tracked/public metadata | Ready |
 | Cross-version and external validity | `make supplemental-robustness` | ATT&CK robustness, preregistered blind-eval, external realism outputs | Tracked/public inputs | Ready |

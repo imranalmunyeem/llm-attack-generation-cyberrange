@@ -2,10 +2,9 @@
 
 ## Registry Status
 
-- `cached_reproducible`: 45
+- `cached_reproducible`: 49
 - `documented_not_regenerated`: 7
 - `missing`: 2
-- `reproducible`: 5
 
 ## Fixed / Canonicalized Values
 

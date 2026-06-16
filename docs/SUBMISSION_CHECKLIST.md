@@ -11,8 +11,8 @@ Use this checklist before sending the paper or artifact package to reviewers.
 | Audit manuscript numbers against the registry | `.\.venv\Scripts\python.exe analysis\audit_consistency.py --strict-paper` | Ready |
 | Rebuild paper figures only | `make figures` | Ready |
 | Plan full corpus scale-up without API calls | `make scaleup-plan` | Ready |
-| Run full Phase 0.5 scale-up | `make scaleup-full` | Requires paid API run |
-| Run exact-size Phase 5 replication | `make multimodel-exact-size` | Requires paid API run |
+| Run full Phase 0.5 scale-up | `make scaleup-full` | Completed locally; release upload pending |
+| Run exact-size Phase 5 replication | `make multimodel-exact-size` | Completed locally |
 
 ## Manual Paper Checks
 
@@ -32,13 +32,11 @@ Use this checklist before sending the paper or artifact package to reviewers.
 - Confirm the paper lists the exact ATT&CK snapshot, model names, sample sizes,
   and release URL for any full API-generated corpus that is claimed.
 
-## Blockers To Clear Before Claiming Full Regeneration
+## Blockers To Clear Before Submission
 
-- Phase 0.5 full scale-up requires running `make scaleup-full` and uploading
-  the ignored full corpus to a citable release. Set `ADVERSIM_RELEASE_URL` before
-  the run if the URL is already known, or rerun the manifest step after upload.
-- Phase 5 exact-size replication requires running `make multimodel-exact-size`.
-  The currently tracked result is a smaller replication and must not be
-  described as the exact-size run.
+- Phase 0.5 full scale-up has been run locally. Upload the ignored full corpus
+  to a citable release and record the release URL in
+  `dataset/manifests/scaleup_MANIFEST.json` before claiming public availability.
+- Phase 5 exact-size replication has been run locally for two OpenAI models.
 - The original manuscript source is absent. Source-specific edits to the
   original abstract, conclusion, references, and bios require that file.

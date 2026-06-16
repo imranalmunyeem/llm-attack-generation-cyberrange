@@ -355,6 +355,7 @@ def main() -> int:
     hallucination = load_json(ROOT / "data" / "journal_results" / "hallucination_report.json")
     extval = load_json(ROOT / "data" / "journal_results" / "attck_groups_validation.json")
     sigma_measured = load_json(ROOT / "results" / "sigma_measured.json")
+    scaleup_validation = load_json(ROOT / "results" / "scaleup_validation.json")
     multimodel = load_json(ROOT / "results" / "multimodel.json")
     real_baselines = load_json(ROOT / "results" / "real_baselines.json")
     attack_robustness = load_json(ROOT / "results" / "attack_version_robustness.json")
@@ -379,8 +380,29 @@ def main() -> int:
         add(registry, "corpus.active_base_denominator", denom, status="reproducible", source=rel(stix_path), script="mitre_attack_validator.py")
         add(registry, "corpus.base_technique_coverage", unique_base / denom, status="reproducible", source=rel(clean_corpus), script="analysis/build_results_registry.py", n=denom)
 
+    if scaleup_validation:
+        summary = scaleup_validation.get("scenario_summary", {})
+        scenario_count = summary.get("scenario_count") or scaleup_validation.get("n_accepted")
+        unique_active = summary.get("unique_active_v14_ids")
+        unique_base = summary.get("unique_base_techniques")
+        coverage = summary.get("base_technique_coverage")
+        denom = round(unique_base / coverage) if unique_base is not None and coverage else None
+        source = "results/scaleup_validation.json"
+        add(registry, "corpus.scenario_count", scenario_count, status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scenario_count)
+        add(registry, "corpus.unique_active_v14", unique_active, status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scenario_count)
+        add(registry, "corpus.unique_base_techniques", unique_base, status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scenario_count)
+        if denom is not None:
+            add(registry, "corpus.active_base_denominator", denom, status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py")
+        add(registry, "corpus.base_technique_coverage", coverage, status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=denom)
+        add(registry, "gen.first_attempt_active_rate", scaleup_validation.get("first_attempt_active_rate"), status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scaleup_validation.get("n_requested"), ci=scaleup_validation.get("first_attempt_active_rate_wilson_95ci"))
+        ci = scaleup_validation.get("first_attempt_active_rate_wilson_95ci") or []
+        if len(ci) == 2:
+            add(registry, "gen.first_attempt_active_ci_low", ci[0], status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scaleup_validation.get("n_requested"))
+            add(registry, "gen.first_attempt_active_ci_high", ci[1], status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scaleup_validation.get("n_requested"))
+        add(registry, "cost.per_scenario_usd", scaleup_validation.get("cost_per_accepted_scenario_usd"), status="cached_reproducible", source=source, script="scaleup/parallel_scaleup.py", n=scaleup_validation.get("n_accepted"))
+
     before = validation.get("before", {})
-    if before:
+    if before and not scaleup_validation:
         n = 1000
         successes = round(float(before.get("first_attempt_active_pass_pct", 0)) / 100 * n)
         ci = wilson_ci(successes, n)
@@ -389,7 +411,7 @@ def main() -> int:
             add(registry, "gen.first_attempt_active_ci_low", ci[0], status="cached_reproducible", source="validation_report_v14.json:before", script="mitre_attack_validator.py", n=n)
             add(registry, "gen.first_attempt_active_ci_high", ci[1], status="cached_reproducible", source="validation_report_v14.json:before", script="mitre_attack_validator.py", n=n)
 
-    if hallucination:
+    if hallucination and not scaleup_validation:
         add(registry, "cost.per_scenario_usd", hallucination.get("cost_per_scenario_usd"), status="cached_reproducible", source="data/journal_results/hallucination_report.json", script="instrumented_generator.py", n=hallucination.get("n_attempted"))
         add(registry, "gen.instrumented_pass_rate", hallucination.get("first_attempt_pass_rate"), status="cached_reproducible", source="data/journal_results/hallucination_report.json", script="instrumented_generator.py", n=hallucination.get("n_attempted"), ci=hallucination.get("wilson_95ci"))
 

@@ -1,6 +1,10 @@
 # Phase 0.5 Corpus Scale-Up
 
-This phase is implemented by `scaleup/corpus_scaleup.py`. The runner generates defensive scenario metadata only, validates every ATT&CK ID against an active enterprise STIX bundle, retries invalid generations with correction hints, and writes the full corpus outside git.
+This phase is implemented by `scaleup/corpus_scaleup.py` and the parallel
+orchestrator `scaleup/parallel_scaleup.py`. Each shard generates defensive
+scenario metadata only, validates every ATT&CK ID against an active enterprise
+STIX bundle, retries invalid generations with correction hints, and writes the
+full corpus outside git.
 
 ## Safety And Data Policy
 
@@ -28,13 +32,14 @@ make scaleup-plan
 
 ## Paid Generation
 
-Use `--run` to permit API calls. The default target is 5,000 base scenarios, matching the minimum Phase 0.5 acceptance threshold.
+Use `--run` to permit API calls. The default target is 5,000 base scenarios,
+matching the minimum Phase 0.5 acceptance threshold.
 
 ```powershell
-.\.venv\Scripts\python.exe scaleup\corpus_scaleup.py `
+.\.venv\Scripts\python.exe scaleup\parallel_scaleup.py `
   --n 5000 `
+  --shards 5 `
   --run `
-  --resume `
   --stix data\journal_results\enterprise-attack-14.1.json `
   --out data\generated\scaleup
 ```
@@ -61,4 +66,17 @@ The run writes:
 
 ## Current Caveat
 
-The handover asks us to pin official ATT&CK v14.1. This checkout contains a local untracked `data/journal_results/enterprise-attack-14.1.json`, which is intentionally ignored by git because it is larger than the Phase 0 size limit. If that file is absent, the script falls back to the already tracked `enterprise-attack.json`, but that fallback should not be used for paper numbers unless the author confirms it is the intended v14.1 bundle.
+The 5,000-scenario paid API run completed locally:
+
+- accepted: 5,000/5,000
+- first-attempt active-v14 rate: 0.945
+- unique active ATT&CK IDs: 150
+- unique base techniques: 113
+- base-technique coverage: 0.562189
+
+The handover asks us to pin official ATT&CK v14.1. This checkout contains a
+local untracked `data/journal_results/enterprise-attack-14.1.json`, which is
+intentionally ignored by git because it is larger than the Phase 0 size limit.
+If that file is absent, the script falls back to the already tracked
+`enterprise-attack.json`, but that fallback should not be used for paper numbers
+unless the author confirms it is the intended v14.1 bundle.

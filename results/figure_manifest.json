@@ -4,8 +4,8 @@
   "figures": [
     {
       "path": "paper_assets/figures/multimodel_generalization.png",
-      "sha256": "6f204b6fd798941ea25189be9bc354492b2357bfa2075087406563483b5452e9",
-      "bytes": 30878
+      "sha256": "40869a7c1ad9a370de4488c083e8b49be975c26e6d245129b49a1fbbe373ba85",
+      "bytes": 30852
     },
     {
       "path": "paper_assets/figures/phase7_human_validation.png",

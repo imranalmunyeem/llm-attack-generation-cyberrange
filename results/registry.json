@@ -60,45 +60,45 @@
     "value": 47
   },
   "corpus.active_base_denominator": {
-    "script": "mitre_attack_validator.py",
-    "source": "mitre/enterprise-attack-14.1-active-techniques.json",
-    "status": "reproducible",
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
+    "status": "cached_reproducible",
     "value": 201
   },
   "corpus.base_technique_coverage": {
     "n": 201,
-    "script": "analysis/build_results_registry.py",
-    "source": "full_dataset_v14clean.jsonl",
-    "status": "reproducible",
-    "value": 0.48756218905472637
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.562189
   },
   "corpus.scenario_count": {
-    "n": 1000,
-    "script": "analysis/build_results_registry.py",
-    "source": "full_dataset_v14clean.jsonl",
-    "status": "reproducible",
-    "value": 1000
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
+    "status": "cached_reproducible",
+    "value": 5000
   },
   "corpus.unique_active_v14": {
-    "n": 1000,
-    "script": "mitre_attack_validator.py",
-    "source": "full_dataset_v14clean.jsonl",
-    "status": "reproducible",
-    "value": 145
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
+    "status": "cached_reproducible",
+    "value": 150
   },
   "corpus.unique_base_techniques": {
-    "n": 1000,
-    "script": "mitre_attack_validator.py",
-    "source": "full_dataset_v14clean.jsonl",
-    "status": "reproducible",
-    "value": 98
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
+    "status": "cached_reproducible",
+    "value": 113
   },
   "cost.per_scenario_usd": {
-    "n": 240,
-    "script": "instrumented_generator.py",
-    "source": "data/journal_results/hallucination_report.json",
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
     "status": "cached_reproducible",
-    "value": 0.000322
+    "value": 0.00043568
   },
   "det.env.cloud": {
     "ci": [
@@ -197,40 +197,29 @@
     "value": 0.5703
   },
   "gen.first_attempt_active_ci_high": {
-    "n": 1000,
-    "script": "mitre_attack_validator.py",
-    "source": "validation_report_v14.json:before",
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
     "status": "cached_reproducible",
-    "value": 0.9433
+    "value": 0.951
   },
   "gen.first_attempt_active_ci_low": {
-    "n": 1000,
-    "script": "mitre_attack_validator.py",
-    "source": "validation_report_v14.json:before",
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
     "status": "cached_reproducible",
-    "value": 0.9114
+    "value": 0.9383
   },
   "gen.first_attempt_active_rate": {
     "ci": [
-      0.9114,
-      0.9433
+      0.9383,
+      0.951
     ],
-    "n": 1000,
-    "script": "mitre_attack_validator.py",
-    "source": "validation_report_v14.json:before",
+    "n": 5000,
+    "script": "scaleup/parallel_scaleup.py",
+    "source": "results/scaleup_validation.json",
     "status": "cached_reproducible",
-    "value": 0.929
-  },
-  "gen.instrumented_pass_rate": {
-    "ci": [
-      0.9842,
-      1.0
-    ],
-    "n": 240,
-    "script": "instrumented_generator.py",
-    "source": "data/journal_results/hallucination_report.json",
-    "status": "cached_reproducible",
-    "value": 1.0
+    "value": 0.945
   },
   "graphcomplexity.pearson_r": {
     "note": "No journal_experiments.py/all_results.json source exists in this checkout",
@@ -295,18 +284,18 @@
     "value": 150
   },
   "multimodel.gpt41.first_attempt_active_rate": {
-    "n": 48,
+    "n": 150,
     "script": "analysis/multimodel.py",
     "source": "results/multimodel.json",
     "status": "cached_reproducible",
-    "value": 0.979167
+    "value": 0.946667
   },
   "multimodel.gpt4o.first_attempt_active_rate": {
-    "n": 48,
+    "n": 150,
     "script": "analysis/multimodel.py",
     "source": "results/multimodel.json",
     "status": "cached_reproducible",
-    "value": 0.9375
+    "value": 0.966667
   },
   "multimodel.models_completed": {
     "script": "analysis/multimodel.py",
@@ -318,13 +307,13 @@
     "script": "analysis/multimodel.py",
     "source": "results/multimodel.json",
     "status": "cached_reproducible",
-    "value": 48
+    "value": 150
   },
   "multimodel.union_unique_active_v14": {
     "script": "analysis/multimodel.py",
     "source": "results/multimodel.json",
     "status": "cached_reproducible",
-    "value": 90
+    "value": 151
   },
   "mutation.obfuscation_mean_cosine": {
     "n": 6087,

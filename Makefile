@@ -30,7 +30,7 @@ scaleup-small:
 	@$(VENV_PYTHON) scaleup/corpus_scaleup.py --n 20 --run --out data/generated/scaleup
 
 scaleup-full:
-	@$(VENV_PYTHON) scaleup/corpus_scaleup.py --n 5000 --run --resume --out data/generated/scaleup --release-url "$$ADVERSIM_RELEASE_URL"
+	@$(VENV_PYTHON) scaleup/parallel_scaleup.py --n 5000 --shards 5 --run --out data/generated/scaleup --release-url "$$ADVERSIM_RELEASE_URL"
 
 registry:
 	@$(VENV_PYTHON) analysis/build_results_registry.py
