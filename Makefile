@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV)/bin/python
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small registry audit-consistency stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -46,3 +46,9 @@ sigma-replay-sample:
 
 sigma-replay:
 	@$(VENV_PYTHON) detection/sigma_replay.py --rules data/journal_results/sigma_rules --events data/raw_logs/sigma_replay_events.jsonl --out results/sigma_measured.json
+
+multimodel-plan:
+	@$(VENV_PYTHON) analysis/multimodel.py --dry-run
+
+multimodel-small:
+	@$(VENV_PYTHON) analysis/multimodel.py --run --n 48 --models gpt-4o-mini gpt-4.1-mini

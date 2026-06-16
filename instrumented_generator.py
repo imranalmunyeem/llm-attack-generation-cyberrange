@@ -429,6 +429,8 @@ if __name__ == "__main__":
                         help="Output directory")
     parser.add_argument("--seed", type=int, default=42,
                         help="Random seed for reproducibility")
+    parser.add_argument("--model", type=str, default="gpt-4o-mini",
+                        help="OpenAI model to use for generation")
     args = parser.parse_args()
 
     random.seed(args.seed)
@@ -436,14 +438,14 @@ if __name__ == "__main__":
 
     # Build balanced sampling plan
     plan = build_balanced_plan(args.n)
-    gen  = InstrumentedGenerator()
+    gen  = InstrumentedGenerator(model=args.model)
 
     out_scenarios = os.path.join(args.out, "hallucination_scenarios.jsonl")
     report_path   = os.path.join(args.out, "hallucination_report.json")
 
     print(f"\nAdverSim Instrumented Generator  —  v2.0")
     print(f"Generating {args.n} scenarios (balanced across 48 parameter combinations)")
-    print(f"Model: gpt-4o-mini  |  seed: {args.seed}\n")
+    print(f"Model: {args.model}  |  seed: {args.seed}\n")
 
     with open(out_scenarios, "w", encoding="utf-8") as fout:
         for i, (at, env, dif) in enumerate(plan):
