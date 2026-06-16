@@ -130,6 +130,8 @@ Paper-facing method artifacts:
 - `paper/methods_algorithms.tex` - LaTeX-ready methods appendix content.
 - `docs/PAPER_VALIDITY_ETHICS_REPRODUCIBILITY.md` - threats to validity, ethics, artifact availability, ablation table, and data/model card.
 - `paper/validity_ethics_reproducibility.tex` - LaTeX-ready validity, ethics, and reproducibility section.
+- `docs/PHASE_9_MANUSCRIPT_MACRO_WIRING.md` - manuscript macro-wiring workflow and CI drift checks.
+- `paper/manuscript_draft.tex` - macro-wired manuscript scaffold.
 
 | Script | Purpose | Needs API Key |
 |---|---|---|

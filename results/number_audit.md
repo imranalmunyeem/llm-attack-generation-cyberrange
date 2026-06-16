@@ -2,7 +2,7 @@
 
 ## Registry Status
 
-- `cached_reproducible`: 11
+- `cached_reproducible`: 45
 - `documented_not_regenerated`: 7
 - `missing`: 2
 - `reproducible`: 5
@@ -31,6 +31,7 @@
 
 ## Manuscript Wiring Status
 
-No `paper/` source manuscript existed before this phase. This phase creates only
-`paper/generated_macros.tex`; replacing hard-coded manuscript literals must wait
-until the `.tex` source is added to the repository.
+`paper/manuscript_draft.tex` is a macro-wired manuscript scaffold.
+Headline registry values should be cited through `paper/generated_macros.tex`.
+Run `analysis/audit_consistency.py --strict-paper` to check manuscript
+entry points for hard-coded registry literals.

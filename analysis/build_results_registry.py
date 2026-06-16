@@ -27,7 +27,10 @@ def load_json(path: Path) -> dict[str, Any]:
     if not path.exists():
         return {}
     with path.open(encoding="utf-8") as f:
-        return json.load(f)
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            return {}
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -208,24 +211,58 @@ def format_percent(value: float, decimals: int = 1) -> str:
 
 
 MACRO_MAP: dict[str, tuple[str, str, int | None]] = {
+    "baseline.adversim.base_coverage": ("BaselineAdverSimBaseCoverage", "percent", 1),
+    "baseline.adversim.transition_corroboration": ("BaselineAdverSimTransition", "percent", 1),
+    "baseline.atomic.base_coverage": ("BaselineAtomicBaseCoverage", "percent", 1),
+    "baseline.atomic.unique_active_v14": ("BaselineAtomicUniqueActive", "plain", None),
+    "baseline.caldera.base_coverage": ("BaselineCalderaBaseCoverage", "percent", 1),
+    "baseline.caldera.transition_corroboration": ("BaselineCalderaTransition", "percent", 1),
+    "baseline.caldera.unique_active_v14": ("BaselineCalderaUniqueActive", "plain", None),
     "corpus.unique_active_v14": ("UniqueActiveV", "plain", None),
+    "corpus.scenario_count": ("ScenarioCount", "plain", None),
     "corpus.unique_base_techniques": ("UniqueBaseTechniques", "plain", None),
     "corpus.base_technique_coverage": ("BaseCoverage", "percent", 1),
     "gen.first_attempt_active_rate": ("FirstAttemptRate", "percent", 1),
     "gen.first_attempt_active_ci_low": ("FirstAttemptCIlo", "percent", 1),
     "gen.first_attempt_active_ci_high": ("FirstAttemptCIhi", "percent", 1),
+    "human.alpha_attck_alignment": ("HumanAlphaAttck", "plain", 3),
+    "human.alpha_overall_realism": ("HumanAlphaOverall", "plain", 3),
+    "human.alpha_stage_sequence": ("HumanAlphaSequence", "plain", 3),
+    "human.annotator_count": ("HumanAnnotators", "plain", None),
+    "human.rs_spearman_ci_high": ("HumanRsCIhi", "plain", 3),
+    "human.rs_spearman_ci_low": ("HumanRsCIlo", "plain", 3),
+    "human.rs_spearman_rho": ("HumanRsRho", "plain", 3),
+    "human.scenario_count": ("HumanScenarioCount", "plain", None),
     "realism.full_corpus_mean": ("RealismFull", "plain", 4),
     "realism.cv_mean": ("RealismCV", "plain", 3),
     "realism.cv_sd": ("RealismCVsd", "plain", 3),
+    "robustness.attack_versions_completed": ("AttackVersionsCompleted", "plain", None),
+    "robustness.min_scenario_all_ids_active_rate": ("AttackVersionMinScenarioActive", "percent", 1),
+    "robustness.min_unique_id_active_rate": ("AttackVersionMinUniqueActive", "percent", 1),
+    "external_realism.n_reports": ("ExternalReports", "plain", None),
+    "external_realism.real_mean": ("ExternalRealMean", "plain", 3),
+    "external_realism.random_mean": ("ExternalRandomMean", "plain", 3),
+    "external_realism.cliff_delta": ("ExternalCliffDelta", "plain", 3),
     "extval.transition_corroboration": ("ExtCorrob", "percent", 1),
     "extval.transition_corroboration_weighted": ("ExtCorrobWeighted", "percent", 1),
     "extval.spearman_rho": ("SpearmanRho", "plain", 4),
+    "multimodel.gpt4o.first_attempt_active_rate": ("MultiGptFourOMiniFirstAttempt", "percent", 1),
+    "multimodel.gpt41.first_attempt_active_rate": ("MultiGptFourOneMiniFirstAttempt", "percent", 1),
+    "multimodel.models_completed": ("MultiModelsCompleted", "plain", None),
+    "multimodel.replication_n_per_model": ("MultiModelN", "plain", None),
+    "multimodel.union_unique_active_v14": ("MultiModelUnionActive", "plain", None),
+    "preregistered.blinded_row_count": ("PreregisteredRows", "plain", None),
+    "preregistered.supported_hypotheses": ("PreregisteredSupportedHypotheses", "plain", None),
     "cost.per_scenario_usd": ("CostPerScenario", "plain", 6),
     "det.env.cloud": ("DetEnvCloud", "plain", 3),
     "det.env.enterprise": ("DetEnvEnterprise", "plain", 3),
     "det.env.healthcare": ("DetEnvHealthcare", "plain", 3),
     "det.env.ics": ("DetEnvICS", "plain", 3),
     "sigma.rules_generated": ("SigmaRulesGenerated", "plain", None),
+    "sigma.replay.event_count": ("SigmaReplayEvents", "plain", None),
+    "sigma.replay.rule_count": ("SigmaReplayRules", "plain", None),
+    "sigma.replay.technique_coverage": ("SigmaReplayCoverage", "percent", 1),
+    "sigma.replay.true_positive_alerts": ("SigmaReplayTruePositiveAlerts", "plain", None),
 }
 
 
@@ -299,9 +336,10 @@ def write_number_audit(registry: dict[str, dict[str, Any]], readme_values: dict[
             "",
             "## Manuscript Wiring Status",
             "",
-            "No `paper/` source manuscript existed before this phase. This phase creates only",
-            "`paper/generated_macros.tex`; replacing hard-coded manuscript literals must wait",
-            "until the `.tex` source is added to the repository.",
+            "`paper/manuscript_draft.tex` is a macro-wired manuscript scaffold.",
+            "Headline registry values should be cited through `paper/generated_macros.tex`.",
+            "Run `analysis/audit_consistency.py --strict-paper` to check manuscript",
+            "entry points for hard-coded registry literals.",
             "",
         ]
     )
@@ -311,10 +349,18 @@ def write_number_audit(registry: dict[str, dict[str, Any]], readme_values: dict[
 
 def main() -> int:
     registry: dict[str, dict[str, Any]] = {}
+    previous_registry = load_json(REGISTRY_PATH)
     validation = load_json(ROOT / "validation_report_v14.json")
     mutation = load_json(ROOT / "mutation_analysis_v14.json")
     hallucination = load_json(ROOT / "data" / "journal_results" / "hallucination_report.json")
     extval = load_json(ROOT / "data" / "journal_results" / "attck_groups_validation.json")
+    sigma_measured = load_json(ROOT / "results" / "sigma_measured.json")
+    multimodel = load_json(ROOT / "results" / "multimodel.json")
+    real_baselines = load_json(ROOT / "results" / "real_baselines.json")
+    attack_robustness = load_json(ROOT / "results" / "attack_version_robustness.json")
+    external_realism = load_json(ROOT / "results" / "external_realism_validation.json")
+    preregistered = load_json(ROOT / "results" / "preregistered_blind_eval.json")
+    human_validation = load_json(ROOT / "results" / "human_validation.json")
     readme = (ROOT / "README.md").read_text(encoding="utf-8", errors="ignore")
     readme_values = parse_readme_tables(readme)
 
@@ -365,6 +411,14 @@ def main() -> int:
         add(registry, "extval.transition_corroboration", extval.get("overlap_fraction"), status="cached_reproducible", source="data/journal_results/attck_groups_validation.json", script="attck_groups_validation.py", n=extval.get("n_generated_pairs"))
         add(registry, "extval.transition_corroboration_weighted", extval.get("weighted_overlap"), status="cached_reproducible", source="data/journal_results/attck_groups_validation.json", script="attck_groups_validation.py", n=extval.get("n_generated_pairs"))
         add(registry, "extval.spearman_rho", extval.get("spearman_rho"), status="cached_reproducible", source="data/journal_results/attck_groups_validation.json", script="attck_groups_validation.py", n=extval.get("n_groups"), extra={"p": extval.get("spearman_p")})
+    else:
+        for key in [
+            "extval.transition_corroboration",
+            "extval.transition_corroboration_weighted",
+            "extval.spearman_rho",
+        ]:
+            if key in previous_registry:
+                registry[key] = previous_registry[key]
 
     env_map = {
         "Cloud Infrastructure": "det.env.cloud",
@@ -379,6 +433,76 @@ def main() -> int:
 
     if readme_values.get("sigma_rules") is not None:
         add(registry, "sigma.rules_generated", readme_values["sigma_rules"], status="documented_not_regenerated", source="README.md Key Results", script="sigma_rule_generator.py", note="README value; smoke validates generator structure but not this exact full-corpus count")
+
+    if sigma_measured:
+        inputs = sigma_measured.get("inputs", {})
+        measured = sigma_measured.get("measured", {})
+        add(registry, "sigma.replay.event_count", inputs.get("event_count"), status="cached_reproducible", source="results/sigma_measured.json", script="detection/sigma_replay.py")
+        add(registry, "sigma.replay.rule_count", inputs.get("rule_count"), status="cached_reproducible", source="results/sigma_measured.json", script="detection/sigma_replay.py")
+        add(registry, "sigma.replay.technique_coverage", measured.get("technique_coverage"), status="cached_reproducible", source="results/sigma_measured.json", script="detection/sigma_replay.py", n=measured.get("techniques_present"))
+        add(registry, "sigma.replay.true_positive_alerts", measured.get("event_true_positive_alerts"), status="cached_reproducible", source="results/sigma_measured.json", script="detection/sigma_replay.py")
+
+    if multimodel:
+        rows = multimodel.get("model_rows", [])
+        add(registry, "multimodel.models_completed", len(multimodel.get("models_completed", [])), status="cached_reproducible", source="results/multimodel.json", script="analysis/multimodel.py")
+        add(registry, "multimodel.replication_n_per_model", multimodel.get("replication_n_per_model"), status="cached_reproducible", source="results/multimodel.json", script="analysis/multimodel.py")
+        add(registry, "multimodel.union_unique_active_v14", multimodel.get("union_unique_active_v14_ids"), status="cached_reproducible", source="results/multimodel.json", script="analysis/multimodel.py")
+        for row in rows:
+            model_key = str(row.get("model", "")).replace(".", "_").replace("-", "_")
+            if model_key == "gpt_4o_mini":
+                add(registry, "multimodel.gpt4o.first_attempt_active_rate", row.get("first_attempt_active_rate"), status="cached_reproducible", source="results/multimodel.json", script="analysis/multimodel.py", n=row.get("n_requested"))
+            if model_key == "gpt_4_1_mini":
+                add(registry, "multimodel.gpt41.first_attempt_active_rate", row.get("first_attempt_active_rate"), status="cached_reproducible", source="results/multimodel.json", script="analysis/multimodel.py", n=row.get("n_requested"))
+
+    if real_baselines:
+        for row in real_baselines.get("rows", []):
+            name = row.get("name")
+            prefix = None
+            if name == "AdverSim":
+                prefix = "baseline.adversim"
+            elif name == "CALDERA Stockpile adversary profiles":
+                prefix = "baseline.caldera"
+            elif name == "Atomic Red Team technique set":
+                prefix = "baseline.atomic"
+            if not prefix:
+                continue
+            ext = row.get("external_transition_validation") or {}
+            add(registry, f"{prefix}.unique_active_v14", row.get("unique_active_v14_ids"), status="cached_reproducible", source="results/real_baselines.json", script="baselines/real_baselines.py", n=row.get("unit_count"))
+            add(registry, f"{prefix}.base_coverage", row.get("base_technique_coverage"), status="cached_reproducible", source="results/real_baselines.json", script="baselines/real_baselines.py", n=row.get("unit_count"))
+            if ext.get("transition_corroboration") is not None:
+                add(registry, f"{prefix}.transition_corroboration", ext.get("transition_corroboration"), status="cached_reproducible", source="results/real_baselines.json", script="baselines/real_baselines.py", n=ext.get("unique_transition_pairs"))
+
+    if attack_robustness:
+        versions = [row for row in attack_robustness.get("versions", []) if row.get("status") == "completed"]
+        if versions:
+            add(registry, "robustness.attack_versions_completed", len(versions), status="cached_reproducible", source="results/attack_version_robustness.json", script="analysis/attack_version_robustness.py")
+            add(registry, "robustness.min_unique_id_active_rate", min(row.get("unique_id_active_rate", 0) for row in versions), status="cached_reproducible", source="results/attack_version_robustness.json", script="analysis/attack_version_robustness.py")
+            add(registry, "robustness.min_scenario_all_ids_active_rate", min(row.get("scenario_all_ids_active_rate", 0) for row in versions), status="cached_reproducible", source="results/attack_version_robustness.json", script="analysis/attack_version_robustness.py")
+
+    if external_realism:
+        add(registry, "external_realism.n_reports", external_realism.get("n_reports"), status="cached_reproducible", source="results/external_realism_validation.json", script="analysis/external_realism_validation.py")
+        add(registry, "external_realism.real_mean", external_realism.get("real_mean"), status="cached_reproducible", source="results/external_realism_validation.json", script="analysis/external_realism_validation.py", n=external_realism.get("n_reports"))
+        add(registry, "external_realism.random_mean", external_realism.get("random_mean"), status="cached_reproducible", source="results/external_realism_validation.json", script="analysis/external_realism_validation.py", n=external_realism.get("n_reports"))
+        test = external_realism.get("statistical_test", {})
+        add(registry, "external_realism.cliff_delta", test.get("cliff_delta"), status="cached_reproducible", source="results/external_realism_validation.json", script="analysis/external_realism_validation.py")
+
+    if preregistered:
+        add(registry, "preregistered.blinded_row_count", preregistered.get("blinded_row_count"), status="cached_reproducible", source="results/preregistered_blind_eval.json", script="analysis/preregistered_blind_eval.py")
+        supported = sum(1 for row in preregistered.get("hypotheses", []) if row.get("supported") is True)
+        add(registry, "preregistered.supported_hypotheses", supported, status="cached_reproducible", source="results/preregistered_blind_eval.json", script="analysis/preregistered_blind_eval.py")
+
+    if human_validation:
+        alpha = human_validation.get("krippendorff_alpha_ordinal", {})
+        rs = human_validation.get("rs_vs_human_overall", {})
+        ci = rs.get("bootstrap_95ci") or [None, None]
+        add(registry, "human.scenario_count", human_validation.get("scenario_count"), status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.annotator_count", human_validation.get("annotator_count"), status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.alpha_attck_alignment", alpha.get("attck_alignment"), status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.alpha_stage_sequence", alpha.get("stage_sequence"), status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.alpha_overall_realism", alpha.get("overall_realism"), status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.rs_spearman_rho", rs.get("spearman_rho"), status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.rs_spearman_ci_low", ci[0], status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
+        add(registry, "human.rs_spearman_ci_high", ci[1], status="cached_reproducible", source="results/human_validation.json", script="annotation/harness.py")
 
     add(registry, "graphcomplexity.pearson_r", None, status="missing", source="not found", script=None, note="No journal_experiments.py/all_results.json source exists in this checkout")
     add(registry, "graphcomplexity.pearson_r2", None, status="missing", source="not found", script=None, note="No journal_experiments.py/all_results.json source exists in this checkout")

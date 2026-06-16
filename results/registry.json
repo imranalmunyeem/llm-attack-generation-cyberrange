@@ -3,6 +3,62 @@
     "builder": "analysis/build_results_registry.py",
     "policy": "Values are included only with an explicit local source and status."
   },
+  "baseline.adversim.base_coverage": {
+    "n": 1000,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 0.487562
+  },
+  "baseline.adversim.transition_corroboration": {
+    "n": 611,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 0.613748
+  },
+  "baseline.adversim.unique_active_v14": {
+    "n": 1000,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 145
+  },
+  "baseline.atomic.base_coverage": {
+    "n": 1621,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 0.711443
+  },
+  "baseline.atomic.unique_active_v14": {
+    "n": 1621,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 320
+  },
+  "baseline.caldera.base_coverage": {
+    "n": 27,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 0.19403
+  },
+  "baseline.caldera.transition_corroboration": {
+    "n": 61,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 0.836066
+  },
+  "baseline.caldera.unique_active_v14": {
+    "n": 27,
+    "script": "baselines/real_baselines.py",
+    "source": "results/real_baselines.json",
+    "status": "cached_reproducible",
+    "value": 47
+  },
   "corpus.active_base_denominator": {
     "script": "mitre_attack_validator.py",
     "source": "mitre/enterprise-attack-14.1-active-techniques.json",
@@ -92,6 +148,32 @@
     "status": "documented_not_regenerated",
     "value": 0.678
   },
+  "external_realism.cliff_delta": {
+    "script": "analysis/external_realism_validation.py",
+    "source": "results/external_realism_validation.json",
+    "status": "cached_reproducible",
+    "value": 1.0
+  },
+  "external_realism.n_reports": {
+    "script": "analysis/external_realism_validation.py",
+    "source": "results/external_realism_validation.json",
+    "status": "cached_reproducible",
+    "value": 40
+  },
+  "external_realism.random_mean": {
+    "n": 40,
+    "script": "analysis/external_realism_validation.py",
+    "source": "results/external_realism_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.776932
+  },
+  "external_realism.real_mean": {
+    "n": 40,
+    "script": "analysis/external_realism_validation.py",
+    "source": "results/external_realism_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.977183
+  },
   "extval.spearman_rho": {
     "n": 150,
     "p": 0.00013828157050134904,
@@ -164,6 +246,86 @@
     "status": "missing",
     "value": null
   },
+  "human.alpha_attck_alignment": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.853514
+  },
+  "human.alpha_overall_realism": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.683737
+  },
+  "human.alpha_stage_sequence": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.54651
+  },
+  "human.annotator_count": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": 5
+  },
+  "human.rs_spearman_ci_high": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": 0.00522
+  },
+  "human.rs_spearman_ci_low": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": -0.290362
+  },
+  "human.rs_spearman_rho": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": -0.142812
+  },
+  "human.scenario_count": {
+    "script": "annotation/harness.py",
+    "source": "results/human_validation.json",
+    "status": "cached_reproducible",
+    "value": 150
+  },
+  "multimodel.gpt41.first_attempt_active_rate": {
+    "n": 48,
+    "script": "analysis/multimodel.py",
+    "source": "results/multimodel.json",
+    "status": "cached_reproducible",
+    "value": 0.979167
+  },
+  "multimodel.gpt4o.first_attempt_active_rate": {
+    "n": 48,
+    "script": "analysis/multimodel.py",
+    "source": "results/multimodel.json",
+    "status": "cached_reproducible",
+    "value": 0.9375
+  },
+  "multimodel.models_completed": {
+    "script": "analysis/multimodel.py",
+    "source": "results/multimodel.json",
+    "status": "cached_reproducible",
+    "value": 2
+  },
+  "multimodel.replication_n_per_model": {
+    "script": "analysis/multimodel.py",
+    "source": "results/multimodel.json",
+    "status": "cached_reproducible",
+    "value": 48
+  },
+  "multimodel.union_unique_active_v14": {
+    "script": "analysis/multimodel.py",
+    "source": "results/multimodel.json",
+    "status": "cached_reproducible",
+    "value": 90
+  },
   "mutation.obfuscation_mean_cosine": {
     "n": 6087,
     "script": "run_mutation_analysis.py",
@@ -177,6 +339,18 @@
     "source": "mutation_analysis_v14.json",
     "status": "cached_reproducible",
     "value": 0.0004
+  },
+  "preregistered.blinded_row_count": {
+    "script": "analysis/preregistered_blind_eval.py",
+    "source": "results/preregistered_blind_eval.json",
+    "status": "cached_reproducible",
+    "value": 120
+  },
+  "preregistered.supported_hypotheses": {
+    "script": "analysis/preregistered_blind_eval.py",
+    "source": "results/preregistered_blind_eval.json",
+    "status": "cached_reproducible",
+    "value": 2
   },
   "realism.cv_mean": {
     "n": 1000,
@@ -200,6 +374,49 @@
     "source": "mutation_analysis_v14.json",
     "status": "cached_reproducible",
     "value": 0.9535
+  },
+  "robustness.attack_versions_completed": {
+    "script": "analysis/attack_version_robustness.py",
+    "source": "results/attack_version_robustness.json",
+    "status": "cached_reproducible",
+    "value": 3
+  },
+  "robustness.min_scenario_all_ids_active_rate": {
+    "script": "analysis/attack_version_robustness.py",
+    "source": "results/attack_version_robustness.json",
+    "status": "cached_reproducible",
+    "value": 1.0
+  },
+  "robustness.min_unique_id_active_rate": {
+    "script": "analysis/attack_version_robustness.py",
+    "source": "results/attack_version_robustness.json",
+    "status": "cached_reproducible",
+    "value": 1.0
+  },
+  "sigma.replay.event_count": {
+    "script": "detection/sigma_replay.py",
+    "source": "results/sigma_measured.json",
+    "status": "cached_reproducible",
+    "value": 56280
+  },
+  "sigma.replay.rule_count": {
+    "script": "detection/sigma_replay.py",
+    "source": "results/sigma_measured.json",
+    "status": "cached_reproducible",
+    "value": 48
+  },
+  "sigma.replay.technique_coverage": {
+    "n": 6,
+    "script": "detection/sigma_replay.py",
+    "source": "results/sigma_measured.json",
+    "status": "cached_reproducible",
+    "value": 0.333333
+  },
+  "sigma.replay.true_positive_alerts": {
+    "script": "detection/sigma_replay.py",
+    "source": "results/sigma_measured.json",
+    "status": "cached_reproducible",
+    "value": 22
   },
   "sigma.rules_generated": {
     "note": "README value; smoke validates generator structure but not this exact full-corpus count",

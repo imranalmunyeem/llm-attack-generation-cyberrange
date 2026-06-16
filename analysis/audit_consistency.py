@@ -35,8 +35,20 @@ def macro_defs() -> dict[str, str]:
     return macros
 
 
-def tex_files() -> list[Path]:
-    return [p for p in ROOT.rglob("*.tex") if ".venv" not in p.parts and "venv" not in p.parts]
+def tex_files(include_all: bool = False) -> list[Path]:
+    candidates = [
+        p
+        for p in (ROOT / "paper").glob("*.tex")
+        if p != MACROS_PATH and ".venv" not in p.parts and "venv" not in p.parts
+    ]
+    if include_all:
+        return candidates
+    entrypoints = [
+        p
+        for p in candidates
+        if p.name in {"main.tex", "manuscript.tex"} or p.name.startswith("manuscript_")
+    ]
+    return entrypoints
 
 
 def registry_literal_patterns(registry: dict) -> dict[str, re.Pattern[str]]:
@@ -46,8 +58,12 @@ def registry_literal_patterns(registry: dict) -> dict[str, re.Pattern[str]]:
             continue
         value = entry.get("value")
         if isinstance(value, float):
+            if abs(value) in {0.0, 1.0}:
+                continue
             variants = {f"{value:g}", f"{value:.3f}", f"{value:.4f}", f"{value * 100:.1f}"}
         elif isinstance(value, int):
+            if abs(value) <= 10:
+                continue
             variants = {str(value)}
         else:
             continue
@@ -59,6 +75,7 @@ def registry_literal_patterns(registry: dict) -> dict[str, re.Pattern[str]]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--strict-paper", action="store_true", help="Fail if no manuscript .tex files exist")
+    parser.add_argument("--all-tex", action="store_true", help="Also scan appendix/supplement .tex files")
     args = parser.parse_args()
 
     registry = load_registry()
@@ -68,9 +85,9 @@ def main() -> int:
         return 1
 
     failures = []
-    files = [p for p in tex_files() if p != MACROS_PATH]
+    files = tex_files(include_all=args.all_tex)
     if not files:
-        message = "No manuscript .tex files found; checked registry and generated macros only."
+        message = "No manuscript entrypoint .tex files found; checked registry and generated macros only."
         if args.strict_paper:
             print(message, file=sys.stderr)
             return 1

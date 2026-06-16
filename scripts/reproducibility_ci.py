@@ -65,6 +65,8 @@ def main() -> int:
     py = sys.executable
     require_artifacts()
     run([py, "-m", "py_compile", "analysis/regenerate_figures.py", "scripts/reproducibility_ci.py"])
+    run([py, "analysis/build_results_registry.py"])
+    run([py, "analysis/audit_consistency.py", "--strict-paper"])
     run([py, "analysis/regenerate_figures.py"])
     validate_manifest()
     run([py, "tests/smoke_pipeline.py"])

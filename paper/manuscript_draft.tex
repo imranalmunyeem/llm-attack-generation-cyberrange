@@ -1,0 +1,210 @@
+% Macro-wired AdverSim manuscript scaffold.
+% This is a presentation-fix draft: use it as the manuscript entry point or
+% copy sections into the journal template. Headline numbers must come from
+% paper/generated_macros.tex rather than being hard-coded.
+
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+
+\input{generated_macros.tex}
+
+\title{AdverSim: Validated LLM-Generated Cyber-Range Scenarios with ATT\&CK Grounding}
+
+\author{
+\IEEEauthorblockN{Anonymous Authors}
+\IEEEauthorblockA{Manuscript draft scaffold for macro-wired presentation}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+AdverSim is a cyber-range scenario generation and evaluation pipeline that
+combines LLM-generated structured scenarios with ATT\&CK validation, detection
+engineering, real-baseline comparison, human realism validation, and
+reproducibility checks. The corpus contains \ScenarioCount{} scenarios covering
+\UniqueActiveV{} active ATT\&CK Enterprise techniques and
+\UniqueBaseTechniques{} base techniques, corresponding to \BaseCoverage{} base
+technique coverage. The validate-and-requery loop achieves a first-attempt
+active-ID validity rate of \FirstAttemptRate{} with a Wilson interval of
+[\FirstAttemptCIlo{}, \FirstAttemptCIhi{}]. The paper frames these results as
+defensive cyber-range artifacts rather than real incident replacements.
+\end{abstract}
+
+\begin{IEEEkeywords}
+cyber range, MITRE ATT\&CK, LLM evaluation, Sigma rules, reproducibility,
+human validation
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Cyber-range datasets must be diverse enough for experimentation while remaining
+traceable to known adversary tradecraft. Static benchmark datasets and manually
+curated scenarios often make this trade-off difficult: they may be realistic
+but small, or scalable but weakly connected to defensive validation. AdverSim
+addresses this gap by generating structured scenarios and then applying
+multiple validation layers before presenting paper claims.
+
+The contribution is not merely scenario generation. The stronger contribution
+is the validation stack: a single ATT\&CK source of truth, cross-version
+robustness, detection-rule replay, real metadata baselines, blinded human
+ratings, and reproducible figure generation. This manuscript therefore avoids
+claiming that synthetic scenarios are real incidents; instead, it presents
+AdverSim as a controllable and audited cyber-range scenario pipeline.
+
+\section{System Overview}
+
+The pipeline begins with an attack type, environment, and difficulty tuple. An
+LLM produces JSON containing a narrative, attack stages, ATT\&CK techniques, and
+an attack graph. The output is parsed, validated against the active ATT\&CK
+matrix, and re-queried when schema or technique checks fail. Accepted scenarios
+are written to a corpus and evaluated by structural scoring, SOC-simulation
+sensitivity analysis, Sigma rule generation and replay, real-baseline
+comparison, human annotation, and reproducibility CI.
+
+Figure~\ref{fig:phase7} illustrates the human-validation result, which is a key
+presentation fix: the structural metric is useful, but it is not treated as a
+complete realism proxy.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../paper_assets/figures/phase7_human_validation.png}
+  \caption{Human realism validation over \HumanScenarioCount{} blinded
+  scenarios rated by \HumanAnnotators{} independent reviewers. Agreement is
+  reported using Krippendorff ordinal alpha, while the association between
+  $R(S)$ and mean overall human realism is reported separately.}
+  \label{fig:phase7}
+\end{figure}
+
+\section{Method}
+
+The generation algorithm is a validate-and-requery loop. For each requested
+scenario tuple, the system prompts the LLM, parses the response as JSON, checks
+required fields, validates ATT\&CK technique identifiers against the active
+matrix snapshot, and either accepts the scenario or sends a correction prompt.
+The full pseudocode and complexity analysis are provided in
+Section~\ref{sec:appendix-methods}.
+
+The structural realism score $R(S)$ combines active-ID validity, attack-stage
+and graph structure, and ATT\&CK group transition coherence. Phase~\ref{sec:human}
+shows why the paper treats $R(S)$ as a structural consistency metric, not as a
+standalone realism oracle.
+
+\section{Results}
+
+\subsection{ATT\&CK Validity and Coverage}
+
+The cleaned corpus contains \ScenarioCount{} scenarios, \UniqueActiveV{} unique
+active ATT\&CK techniques, and \UniqueBaseTechniques{} unique base techniques.
+This yields \BaseCoverage{} base-technique coverage against the active
+Enterprise matrix denominator. Cross-version robustness over
+\AttackVersionsCompleted{} ATT\&CK releases preserves a minimum unique-ID active
+rate of \AttackVersionMinUniqueActive{} and a minimum per-scenario all-ID
+active rate of \AttackVersionMinScenarioActive{}.
+
+\subsection{External Grounding and Real Baselines}
+
+External ATT\&CK transition validation finds \ExtCorrob{} unweighted and
+\ExtCorrobWeighted{} weighted transition corroboration, with a Spearman
+association of \SpearmanRho{}. A separate third-party report-derived realism
+check uses \ExternalReports{} reports and separates real report-derived
+sequences from random controls: mean scores are \ExternalRealMean{} versus
+\ExternalRandomMean{}, with Cliff's delta \ExternalCliffDelta{}.
+
+Real-system metadata baselines provide a non-author-constructed comparison.
+AdverSim covers \BaselineAdverSimBaseCoverage{} of active base techniques with
+\BaselineAdverSimTransition{} transition corroboration. CALDERA Stockpile
+metadata covers \BaselineCalderaBaseCoverage{} of active base techniques with
+\BaselineCalderaTransition{} transition corroboration, while Atomic Red Team
+metadata covers \BaselineAtomicBaseCoverage{} of active base techniques but is
+single-technique by design.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../paper_assets/figures/real_baselines_coverage.png}
+  \caption{Coverage comparison against public real-system metadata baselines.}
+  \label{fig:baselines}
+\end{figure}
+
+\subsection{Detection Engineering}
+
+AdverSim generates \SigmaRulesGenerated{} Sigma-compatible rule skeletons. In
+the replay experiment, \SigmaReplayRules{} generated rules are evaluated over
+\SigmaReplayEvents{} labelled events, yielding \SigmaReplayCoverage{} technique
+coverage and \SigmaReplayTruePositiveAlerts{} true-positive event alerts. This
+result grounds the detection-engineering claim in replayed telemetry while
+retaining the limitation that the matcher is intentionally transparent and
+keyword based.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../paper_assets/figures/sigma_replay_coverage.png}
+  \caption{Empirical Sigma replay coverage over labelled defensive events.}
+  \label{fig:sigma}
+\end{figure}
+
+\subsection{Multi-Model Generalization}
+
+The multi-model replication evaluates \MultiModelsCompleted{} models with
+\MultiModelN{} requested scenarios per model. The union contains
+\MultiModelUnionActive{} unique active ATT\&CK techniques. First-attempt active
+validity is \MultiGptFourOMiniFirstAttempt{} for GPT-4o-mini and
+\MultiGptFourOneMiniFirstAttempt{} for GPT-4.1-mini.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../paper_assets/figures/multimodel_generalization.png}
+  \caption{Small stratified multi-model replication.}
+  \label{fig:multimodel}
+\end{figure}
+
+\subsection{Human Realism Validation}
+\label{sec:human}
+
+Five independent reviewers rated \HumanScenarioCount{} blinded scenarios.
+Agreement was strongest for ATT\&CK alignment
+($\alpha=\HumanAlphaAttck{}$), moderate for overall realism
+($\alpha=\HumanAlphaOverall{}$), and lower for stage-sequence judgments
+($\alpha=\HumanAlphaSequence{}$). The association between $R(S)$ and mean human
+overall realism was \HumanRsRho{} with bootstrap interval
+[\HumanRsCIlo{}, \HumanRsCIhi{}]. This result supports the presentation fix:
+$R(S)$ is useful for structural quality control, but human review remains
+necessary for realism.
+
+\section{Reproducibility}
+
+All headline values in this draft are macro-wired through
+\texttt{paper/generated\_macros.tex}. The repository includes a reproducibility
+CI path that regenerates figures, verifies the figure manifest, runs an offline
+smoke pipeline, rebuilds the registry, and audits manuscript literals. Fresh
+generation remains API-dependent, but figure regeneration and aggregate-result
+checks run without API keys or raw logs.
+
+\section{Limitations, Ethics, and Safety}
+
+AdverSim scenarios are synthetic. The system is intended for defensive
+cyber-range research, teaching, and detection engineering; it does not execute
+malware, exploit payloads, Atomic Red Team tests, CALDERA agents, or live
+adversary emulation. Raw logs, human rating sheets, reviewer identities, API
+keys, and local secrets are excluded from version control.
+
+\section{Conclusion}
+
+AdverSim demonstrates that LLM-generated cyber-range scenarios can be made more
+publishable when generation is paired with validation, baselines, human review,
+and reproducible presentation. The key presentation change is restraint:
+structural consistency, detection replay, and human realism are reported as
+distinct evidence streams rather than collapsed into one overbroad realism
+claim.
+
+\appendices
+\section{Algorithmic Methodology}
+\label{sec:appendix-methods}
+\input{methods_algorithms.tex}
+
+\section{Validity and Artifact Details}
+\input{validity_ethics_reproducibility.tex}
+
+\end{document}
