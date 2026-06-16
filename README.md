@@ -128,6 +128,8 @@ Paper-facing method artifacts:
 
 - `docs/PAPER_METHODS_ALGORITHMS.md` - system architecture, pseudocode, and complexity notes.
 - `paper/methods_algorithms.tex` - LaTeX-ready methods appendix content.
+- `docs/PAPER_VALIDITY_ETHICS_REPRODUCIBILITY.md` - threats to validity, ethics, artifact availability, ablation table, and data/model card.
+- `paper/validity_ethics_reproducibility.tex` - LaTeX-ready validity, ethics, and reproducibility section.
 
 | Script | Purpose | Needs API Key |
 |---|---|---|

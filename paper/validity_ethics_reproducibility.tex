@@ -1,0 +1,125 @@
+% Paper-ready validity, ethics, and reproducibility text for AdverSim.
+% This section is additive and does not change reported results.
+
+\section{Validity, Ethics, and Reproducibility}
+
+\subsection{Threats to Validity}
+
+\textbf{Construct validity.}
+The structural realism score $R(S)$ measures ATT\&CK consistency, scenario
+structure, and transition coherence. It should not be interpreted as a complete
+proxy for real-world incident realism. The human validation experiment shows
+that human overall-realism ratings do not strongly positively align with
+$R(S)$, so the metric is best framed as a structural consistency measure that
+requires human realism checks.
+
+The SOC simulation is parameterized and should be interpreted as simulation
+behavior rather than an empirical production-SOC study. Sensitivity analysis is
+therefore used to distinguish invariant findings from model artifacts. Sigma
+replay provides defensive grounding by applying generated rule skeletons to
+labelled events, but its coverage depends on event availability, label quality,
+logsource mapping, and the intentionally transparent keyword matcher.
+
+\textbf{Internal validity.}
+The validate-and-requery loop reduces invalid JSON, schema failures, and
+inactive ATT\&CK IDs, but it can also bias accepted outputs toward scenarios
+that satisfy schema and matrix constraints. Human ratings were collected from
+five independent technical reviewers: two software test engineers, one IT
+specialist, one master's student in cybersecurity, and one master's student in
+computer science. This supports independent human realism checking, but it
+should not be described as a panel composed entirely of SOC, DFIR, or
+threat-intelligence experts.
+
+\textbf{External validity.}
+The corpus covers selected attack types, environments, difficulties, and
+ATT\&CK Enterprise techniques. Results may not transfer directly to operational
+incidents, non-Enterprise ATT\&CK matrices, highly specialized industrial
+control environments, or organizations with different logging maturity. The real
+baseline comparison uses public CALDERA Stockpile and Atomic Red Team metadata;
+these are useful non-author-constructed baselines but are not complete models of
+all real adversary behavior.
+
+\textbf{Statistical conclusion validity.}
+Confidence intervals, null models, held-out refits, agreement statistics, and
+multiple-testing adjustments are used where the available data support them.
+Remaining risks include limited human-reviewer count, aggregate-only legacy
+mutation outputs, and correlation estimates that depend on the selected sample
+and metric definition.
+
+\subsection{Ethics and Safety}
+
+AdverSim is intended for defensive cyber-range research, teaching,
+reproducible evaluation, and detection engineering. The repository generates
+structured scenario descriptions and Sigma-compatible detection skeletons. It
+does not execute malware, exploit payloads, Atomic Red Team tests, CALDERA
+agents, or live adversary emulation. Public baseline scripts parse metadata
+only.
+
+Raw defensive logs, raw human rating sheets, reviewer identities, API keys, and
+local secrets are excluded from version control. Environment files and key-like
+artifacts are ignored, raw annotation directories are ignored, and tracked
+outputs contain only aggregate or anonymized results. Out-of-scope uses include
+unauthorized intrusion, malware deployment, credential theft, exploit execution,
+or evasion testing against systems without authorization.
+
+\subsection{Artifact Availability and Reproducibility}
+
+The repository separates API-dependent generation from offline
+reproducibility. The offline path runs without API keys or raw logs: it checks
+tracked result artifacts, regenerates paper figures from aggregate outputs,
+validates figure hashes through a manifest, runs the smoke pipeline, and scans
+for large files or secret-like values. Fresh LLM generation, multi-model
+replication reruns, and some public-baseline refreshes are documented separately
+because they require API access or network availability.
+
+\begin{table}[t]
+\centering
+\caption{Methodological components and their role in strengthening validity.}
+\begin{tabular}{p{0.23\linewidth}p{0.31\linewidth}p{0.31\linewidth}}
+\hline
+Component & Contribution & Limitation \\
+\hline
+Validate-and-requery & Rejects malformed JSON and invalid ATT\&CK IDs before corpus acceptance & Does not guarantee full tactical realism \\
+Single ATT\&CK source of truth & Makes technique counts traceable to one matrix snapshot & Depends on selected ATT\&CK version \\
+Cross-version robustness & Tests behavior under v13/v14/v15 matrix drift & Limited to Enterprise ATT\&CK \\
+Statistical rigor & Adds confidence intervals, null models, and effect-size framing & Some legacy outputs remain aggregate-only \\
+SOC sensitivity & Separates invariant findings from model artifacts & Not a production-SOC study \\
+Sigma replay & Grounds detection claims in labelled events & Depends on labels and simple matching \\
+Real baselines & Compares against public non-author-constructed metadata & Public corpora are heterogeneous \\
+Human validation & De-biases $R(S)$ with blinded human ratings & Reviewers are technical, not all SOC/DFIR experts \\
+Reproducibility CI & Regenerates figures and verifies artifacts without secrets & Fresh generation still requires API access \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Data and Model Card Summary}
+
+\begin{table}[t]
+\centering
+\caption{AdverSim data and model card summary.}
+\begin{tabular}{p{0.32\linewidth}p{0.56\linewidth}}
+\hline
+Field & Summary \\
+\hline
+Artifact & Synthetic cyber-range scenario corpus in JSONL format \\
+Scenario structure & Narrative, environment, difficulty, attack type, stages, ATT\&CK techniques, and attack graph \\
+Main ATT\&CK matrix & Enterprise v14.1 active-technique index \\
+Robustness checks & Additional v13/v14/v15 validation audit \\
+Human validation & 150 blinded scenarios rated by five independent reviewers \\
+Reviewer composition & Two software test engineers, one IT specialist, one MSc cybersecurity student, one MSc computer science student \\
+Raw sensitive files & API keys, raw logs, raw rating sheets, and reviewer identities excluded from git \\
+Intended uses & Cyber-range scenario generation, defensive evaluation, teaching, and reproducible research \\
+Out-of-scope uses & Unauthorized intrusion, exploit execution, malware deployment, credential theft, or unsanctioned evasion testing \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Limitations Statement}
+
+AdverSim scenarios are synthetic and should not be interpreted as substitutes
+for real incident reports or telemetry. The validation pipeline reduces
+malformed outputs and invalid ATT\&CK IDs, but tactical realism remains partly a
+human judgment. Accordingly, $R(S)$ is reported as a structural consistency
+metric, while blinded human ratings provide an independent realism check. SOC
+detection results are presented as simulation and sensitivity-analysis outputs,
+not as measurements of analyst performance in a production SOC.
