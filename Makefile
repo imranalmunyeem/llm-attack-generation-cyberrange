@@ -10,7 +10,7 @@ ifeq ($(wildcard $(VENV_PYTHON)),)
 VENV_PYTHON := $(PYTHON)
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay sigma-replay-intervals multimodel-plan multimodel-small multimodel-exact-size multimodel-expanded-plan multimodel-table multimodel-coverage-curve real-baselines attack-version-robustness external-realism-validation leakage-audit contamination-audit corpus-diversity non-llm-baseline rs-weight-sensitivity statistical-hardening hardening-registry figure-export number-consistency float-reference overleaf-analysis-sources supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa paper-hardening
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay sigma-replay-intervals multimodel-plan multimodel-small multimodel-exact-size multimodel-expanded-plan multimodel-table multimodel-coverage-curve real-baselines attack-version-robustness external-realism-validation leakage-audit contamination-audit corpus-diversity non-llm-baseline rs-weight-sensitivity statistical-hardening hardening-registry figure-export number-consistency float-reference regeneration-drift-check overleaf-analysis-sources supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa paper-hardening
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -108,10 +108,13 @@ number-consistency:
 float-reference:
 	@$(VENV_PYTHON) scripts/float_reference_lint.py
 
+regeneration-drift-check:
+	@$(VENV_PYTHON) scripts/regeneration_drift_check.py --strict
+
 overleaf-analysis-sources:
 	@$(VENV_PYTHON) scripts/sync_overleaf_analysis_sources.py
 
-paper-hardening: figure-export multimodel-table multimodel-coverage-curve corpus-diversity non-llm-baseline rs-weight-sensitivity sigma-replay-intervals leakage-audit contamination-audit statistical-hardening hardening-registry number-consistency float-reference overleaf-analysis-sources
+paper-hardening: figure-export multimodel-table multimodel-coverage-curve corpus-diversity non-llm-baseline rs-weight-sensitivity sigma-replay-intervals leakage-audit contamination-audit statistical-hardening hardening-registry number-consistency float-reference overleaf-analysis-sources regeneration-drift-check
 
 supplemental-robustness: attack-version-robustness external-realism-validation leakage-audit contamination-audit
 	@$(VENV_PYTHON) analysis/preregistered_blind_eval.py

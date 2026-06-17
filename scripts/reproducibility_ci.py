@@ -36,6 +36,7 @@ PY_COMPILE_TARGETS = [
     "scripts/reproducibility_ci.py",
     "scripts/float_reference_lint.py",
     "scripts/number_consistency_lint.py",
+    "scripts/regeneration_drift_check.py",
     "scripts/sync_overleaf_analysis_sources.py",
     "scripts/verify_overleaf_zip.py",
     "tests/smoke_pipeline.py",
@@ -56,6 +57,7 @@ def main() -> int:
     if (ROOT / "paper" / "ieee_access_overleaf").exists() and (ROOT / "results" / "registry.json").exists():
         run([py, "scripts/number_consistency_lint.py"])
         run([py, "scripts/float_reference_lint.py"])
+        run([py, "scripts/regeneration_drift_check.py"])
     print("reproducibility-ci ok")
     return 0
 

@@ -38,6 +38,10 @@ def main() -> int:
         add(reg, "diversity.near_duplicate_rate", glob["near_duplicate_rate"], "results/corpus_diversity.json", "analysis/corpus_diversity.py", glob["pairs_evaluated"])
         add(reg, "diversity.mean_jaccard", glob["mean_jaccard"], "results/corpus_diversity.json", "analysis/corpus_diversity.py", glob["pairs_evaluated"])
         add(reg, "diversity.p95_jaccard", glob["p95_jaccard"], "results/corpus_diversity.json", "analysis/corpus_diversity.py", glob["pairs_evaluated"])
+        add(reg, "diversity.max_jaccard", glob["max_jaccard"], "results/corpus_diversity.json", "analysis/corpus_diversity.py", glob["pairs_evaluated"])
+        for row in diversity.get("per_cell", []):
+            safe_cell = row["cell"].lower().replace(" / ", ".").replace(" ", "_").replace("-", "_")
+            add(reg, f"diversity.cell.{safe_cell}.max_jaccard", row["max_jaccard"], "results/corpus_diversity.json", "analysis/corpus_diversity.py", row["pairs_evaluated"])
 
     robustness = load(ROOT / "results" / "attack_version_robustness.json")
     if robustness:

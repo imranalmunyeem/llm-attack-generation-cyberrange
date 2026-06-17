@@ -85,6 +85,7 @@ def audit_group(rows: list[dict[str, Any]], sets: list[set[str]], indices: list[
         "near_duplicate_rate": round(near / max(1, len(scores)), 6),
         "mean_jaccard": round(sum(scores) / max(1, len(scores)), 6),
         "p95_jaccard": round(sorted(scores)[int(0.95 * (len(scores) - 1))], 6) if scores else None,
+        "max_jaccard": round(max(scores), 6) if scores else None,
     }
 
 
@@ -109,14 +110,14 @@ def write_table(result: dict[str, Any], path: Path) -> None:
         f"\\caption{{Corpus diversity audit aggregated by attack type. Near-duplicate threshold: 5-gram Jaccard $\\geq {threshold:.2f}$.}}",
         "\\label{tab:corpus-diversity}",
         "\\small",
-        "\\begin{tabular}{lrrr}",
+        "\\begin{tabular}{lrrrr}",
         "\\toprule",
-        "Attack type & Scenarios & Near-duplicate rate & Mean Jaccard \\\\",
+        "Attack type & Scenarios & Near-dup. rate & Mean Jaccard & Max Jaccard \\\\",
         "\\midrule",
     ]
     for row in rows:
-        lines.append(f"{row['attack_type']} & {row['n']} & {row['near_duplicate_rate']:.3f} & {row['mean_jaccard']:.3f} \\\\")
-    lines.extend(["\\midrule", f"Global & {result['global']['n']} & {result['global']['near_duplicate_rate']:.3f} & {result['global']['mean_jaccard']:.3f} \\\\", "\\bottomrule", "\\end{tabular}", "\\end{table}", ""])
+        lines.append(f"{row['attack_type']} & {row['n']} & {row['near_duplicate_rate']:.3f} & {row['mean_jaccard']:.3f} & {row['max_jaccard']:.3f} \\\\")
+    lines.extend(["\\midrule", f"Global & {result['global']['n']} & {result['global']['near_duplicate_rate']:.3f} & {result['global']['mean_jaccard']:.3f} & {result['global']['max_jaccard']:.3f} \\\\", "\\bottomrule", "\\end{tabular}", "\\end{table}", ""])
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines), encoding="utf-8")
 
@@ -139,7 +140,7 @@ def main() -> int:
     parser.add_argument("--corpus", type=Path, default=DEFAULT_CORPUS if DEFAULT_CORPUS.exists() else FALLBACK_CORPUS)
     parser.add_argument("--threshold", type=float, default=0.85)
     parser.add_argument("--ngram", type=int, default=5)
-    parser.add_argument("--max-pairs", type=int, default=200000)
+    parser.add_argument("--max-pairs", type=int, default=20000)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
     rng = random.Random(args.seed)

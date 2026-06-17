@@ -21,6 +21,7 @@ SOURCES = [
     ROOT / "analysis" / "sigma_replay_intervals.py",
     ROOT / "analysis" / "statistical_hardening.py",
     ROOT / "analysis" / "update_hardening_registry.py",
+    ROOT / "scripts" / "regeneration_drift_check.py",
     ROOT / "visualization" / "build_architecture_figure.py",
     ROOT / "visualization" / "export_ieee_figures.py",
 ]
