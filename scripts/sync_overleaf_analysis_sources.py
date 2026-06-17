@@ -11,6 +11,7 @@ PAPER = ROOT / "paper" / "ieee_access_overleaf"
 DEST = PAPER / "analysis"
 
 SOURCES = [
+    ROOT / "analysis" / "baseline_human_comparison.py",
     ROOT / "analysis" / "build_results_registry.py",
     ROOT / "analysis" / "contamination_audit.py",
     ROOT / "analysis" / "corpus_diversity.py",

@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 PY_COMPILE_TARGETS = [
     "analysis/attack_version_robustness.py",
+    "analysis/baseline_human_comparison.py",
     "analysis/build_results_registry.py",
     "analysis/contamination_audit.py",
     "analysis/external_realism_validation.py",

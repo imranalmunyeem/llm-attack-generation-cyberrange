@@ -32,6 +32,7 @@ COMMANDS = [
     CommandSpec(["analysis/multimodel_coverage_curve.py"], (ROOT / "data" / "generated" / "multimodel",)),
     CommandSpec(["analysis/corpus_diversity.py"], (ROOT / "data" / "generated" / "scaleup" / "adversim_scaleup_full.jsonl",)),
     CommandSpec(["analysis/non_llm_baseline.py"], (ROOT / "mitre" / "enterprise-attack-14.1-active-techniques.json",)),
+    CommandSpec(["analysis/baseline_human_comparison.py"], (ROOT / "annotation" / "raw" / "baseline_comparison" / "baseline_comparison_packet_COMPLETED_independent_ratings.xlsx",)),
     CommandSpec(["analysis/sigma_replay_intervals.py"], (ROOT / "results" / "sigma_measured.json",)),
     CommandSpec(["analysis/contamination_audit.py"], (ROOT / "data" / "generated" / "scaleup" / "adversim_scaleup_full.jsonl",)),
     CommandSpec(["analysis/rs_weight_sensitivity.py", "--bootstrap", "500"], (ROOT / "results" / "human_ratings_summary.csv",)),

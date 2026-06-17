@@ -88,6 +88,18 @@ def main() -> int:
             if field in llm:
                 add(reg, f"non_llm.llm_{field}", llm[field], "results/non_llm_baseline.json", "analysis/non_llm_baseline.py", llm.get("n"))
 
+    baseline_human = load(ROOT / "results" / "baseline_human_comparison.json")
+    if baseline_human:
+        add(reg, "baseline_human.pairs", baseline_human["matched_pairs"], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py")
+        add(reg, "baseline_human.reviewers", baseline_human["reviewer_count"], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py")
+        for field in ("overall_realism_1_5", "narrative_detail_1_5", "attck_alignment_1_5", "stage_sequence_1_5"):
+            row = baseline_human["dimensions"][field]
+            safe = field.replace("_1_5", "")
+            add(reg, f"baseline_human.{safe}.mean_difference", row["mean_difference"], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
+            add(reg, f"baseline_human.{safe}.ci_low", row["mean_difference_95ci"][0], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
+            add(reg, f"baseline_human.{safe}.ci_high", row["mean_difference_95ci"][1], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
+            add(reg, f"baseline_human.{safe}.wilcoxon_p", row["wilcoxon_p_greater"], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
+
     external = load(ROOT / "results" / "external_realism_validation.json")
     if external:
         test = external.get("statistical_test", {})
