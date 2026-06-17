@@ -36,6 +36,24 @@ DEFAULT_OUT = ROOT / "results" / "sigma_measured.json"
 TECHNIQUE_RE = re.compile(r"T\d{4}(?:\.\d{3})?", re.IGNORECASE)
 TAG_TECHNIQUE_RE = re.compile(r"attack\.t(\d{4})(?:[_\.](\d{3}))?", re.IGNORECASE)
 
+BACKEND_FIELD_ALIASES = {
+    "ecs": {
+        "category": ("event.category", "event.type"),
+        "product": ("event.module", "agent.type", "host.os.type"),
+        "service": ("event.provider", "log.logger"),
+    },
+    "windows": {
+        "category": ("EventCategory", "Channel", "winlog.channel"),
+        "product": ("winlog.channel", "Channel"),
+        "service": ("Provider", "ProviderName", "winlog.provider_name", "winlog.provider_guid"),
+    },
+    "sysmon": {
+        "category": ("event.category", "EventCategory"),
+        "product": ("winlog.channel", "Channel"),
+        "service": ("winlog.provider_name", "Provider", "ProviderName"),
+    },
+}
+
 
 @dataclass(frozen=True)
 class SigmaRule:
@@ -184,11 +202,15 @@ def extract_event_logsource(event: dict[str, Any]) -> dict[str, str]:
         return explicit
 
     derived = {}
-    for out_key, paths in {
-        "category": ("event.category", "category", "EventCategory"),
-        "product": ("event.module", "product", "winlog.channel"),
-        "service": ("event.provider", "service", "winlog.provider_name", "Provider"),
-    }.items():
+    paths_by_key = {
+        "category": ["event.category", "category", "EventCategory"],
+        "product": ["event.module", "product", "winlog.channel", "Channel"],
+        "service": ["event.provider", "service", "winlog.provider_name", "Provider", "ProviderName"],
+    }
+    for aliases in BACKEND_FIELD_ALIASES.values():
+        for out_key, paths in aliases.items():
+            paths_by_key.setdefault(out_key, []).extend(paths)
+    for out_key, paths in paths_by_key.items():
         for path in paths:
             value = get_path(event, path)
             if value:
@@ -269,6 +291,22 @@ def logsource_matches(rule_source: dict[str, str], event_source: dict[str, str])
     return True
 
 
+def compatible_technique_overlap(labels: frozenset[str], rule_techniques: frozenset[str]) -> frozenset[str]:
+    """Return event labels compatible with rule techniques.
+
+    Exact matches are preferred, but base/sub-technique compatibility is also
+    counted because many public replay logs label either the base technique or
+    a sub-technique while Sigma tags may choose the other granularity.
+    """
+
+    overlap = set(labels & rule_techniques)
+    rule_bases = {tid.split(".")[0] for tid in rule_techniques}
+    for label in labels:
+        if label.split(".")[0] in rule_bases:
+            overlap.add(label)
+    return frozenset(sorted(overlap))
+
+
 def rule_matches_event(rule: SigmaRule, event: Event) -> bool:
     if not logsource_matches(rule.logsource, event.logsource):
         return False
@@ -299,7 +337,7 @@ def replay(rules: list[SigmaRule], events: list[Event]) -> dict[str, Any]:
             if not rule_matches_event(rule, event):
                 continue
 
-            overlap = event.labels & rule.techniques
+            overlap = compatible_technique_overlap(event.labels, rule.techniques)
             is_true_positive = bool(overlap)
             if not is_true_positive:
                 false_positive_alerts += 1
@@ -360,8 +398,11 @@ def replay(rules: list[SigmaRule], events: list[Event]) -> dict[str, Any]:
             "Coverage is measured only for techniques labelled in the input events.",
             "An alert is true-positive only when the event label overlaps the rule ATT&CK techniques.",
             "Rules with wildcard-only detections are not treated as matches.",
+            "Base/sub-technique ATT&CK compatibility is counted as label overlap.",
+            "Event logsource extraction uses ECS, Windows, and Sysmon alias mappings.",
             "Raw logs are intentionally excluded from git; commit only this aggregate JSON output.",
         ],
+        "backend_field_mapping": BACKEND_FIELD_ALIASES,
     }
 
 

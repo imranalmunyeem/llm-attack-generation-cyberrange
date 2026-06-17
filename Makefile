@@ -10,7 +10,7 @@ ifeq ($(wildcard $(VENV_PYTHON)),)
 VENV_PYTHON := $(PYTHON)
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay sigma-replay-intervals multimodel-plan multimodel-small multimodel-exact-size multimodel-expanded-plan multimodel-table real-baselines attack-version-robustness external-realism-validation leakage-audit corpus-diversity non-llm-baseline rs-weight-sensitivity statistical-hardening hardening-registry figure-export number-consistency supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa paper-hardening
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay sigma-replay-intervals multimodel-plan multimodel-small multimodel-exact-size multimodel-expanded-plan multimodel-table multimodel-coverage-curve real-baselines attack-version-robustness external-realism-validation leakage-audit contamination-audit corpus-diversity non-llm-baseline rs-weight-sensitivity statistical-hardening hardening-registry figure-export number-consistency float-reference overleaf-analysis-sources supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa paper-hardening
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -65,6 +65,9 @@ multimodel-expanded-plan:
 multimodel-table:
 	@$(VENV_PYTHON) analysis/multimodel_table.py
 
+multimodel-coverage-curve:
+	@$(VENV_PYTHON) analysis/multimodel_coverage_curve.py
+
 real-baselines:
 	@$(VENV_PYTHON) baselines/real_baselines.py
 
@@ -76,6 +79,9 @@ external-realism-validation:
 
 leakage-audit:
 	@$(VENV_PYTHON) analysis/leakage_audit.py
+
+contamination-audit:
+	@$(VENV_PYTHON) analysis/contamination_audit.py
 
 corpus-diversity:
 	@$(VENV_PYTHON) analysis/corpus_diversity.py
@@ -99,9 +105,15 @@ figure-export:
 number-consistency:
 	@$(VENV_PYTHON) scripts/number_consistency_lint.py
 
-paper-hardening: figure-export multimodel-table corpus-diversity non-llm-baseline rs-weight-sensitivity sigma-replay-intervals leakage-audit statistical-hardening hardening-registry number-consistency
+float-reference:
+	@$(VENV_PYTHON) scripts/float_reference_lint.py
 
-supplemental-robustness: attack-version-robustness external-realism-validation leakage-audit
+overleaf-analysis-sources:
+	@$(VENV_PYTHON) scripts/sync_overleaf_analysis_sources.py
+
+paper-hardening: figure-export multimodel-table multimodel-coverage-curve corpus-diversity non-llm-baseline rs-weight-sensitivity sigma-replay-intervals leakage-audit contamination-audit statistical-hardening hardening-registry number-consistency float-reference overleaf-analysis-sources
+
+supplemental-robustness: attack-version-robustness external-realism-validation leakage-audit contamination-audit
 	@$(VENV_PYTHON) analysis/preregistered_blind_eval.py
 
 annotation-prepare:

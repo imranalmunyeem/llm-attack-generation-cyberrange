@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import textwrap
 from pathlib import Path
 from typing import Any
 
@@ -39,8 +40,11 @@ def box(ax, x: float, y: float, w: float, h: float, title: str, body: str, color
         facecolor=color,
     )
     ax.add_patch(patch)
-    ax.text(x + w / 2, y + h - 0.09, title, ha="center", va="top", fontsize=9.5, weight="bold")
-    ax.text(x + w / 2, y + h / 2 - 0.03, body, ha="center", va="center", fontsize=8, linespacing=1.25)
+    wrapped = "\n".join(
+        "\n".join(textwrap.wrap(line, width=18, break_long_words=False)) for line in body.splitlines()
+    )
+    ax.text(x + w / 2, y + h - 0.045, title, ha="center", va="top", fontsize=9.2, weight="bold")
+    ax.text(x + w / 2, y + h - 0.115, wrapped, ha="center", va="top", fontsize=7.2, linespacing=1.22)
 
 
 def arrow(ax, x1: float, y1: float, x2: float, y2: float) -> None:
@@ -58,22 +62,22 @@ def build(registry_path: Path, out_path: Path) -> None:
     human_n = load_value(registry, "human.scenario_count")
     human_r = load_value(registry, "human.annotator_count")
 
-    fig, ax = plt.subplots(figsize=(10.5, 5.5))
+    fig, ax = plt.subplots(figsize=(10.5, 5.8))
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis("off")
 
     boxes = [
-        (0.04, 0.63, "Input Plan", "48 balanced cells\nattack x environment\nx difficulty", "#e8f1fb"),
-        (0.25, 0.63, "LLM Proposal", "metadata-only JSON\nno payload execution\nno live targets", "#f7efe2"),
-        (0.46, 0.63, "Validator", f"schema + ATT&CK v14.1\nfirst active {first}\nbounded re-query", "#e8f6ee"),
-        (0.67, 0.63, "Accepted Corpus", f"{scenarios} scenarios\n{active} active IDs\n{base} base techniques", "#f2edf9"),
-        (0.25, 0.18, "Evaluation Stack", "R(S) scoring\nmutation + SOC sensitivity\nreal metadata baselines", "#eef3f3"),
-        (0.46, 0.18, "Replay Grounding", f"{sigma_rules} Sigma rules\n{sigma_events} labelled events\ntechnique coverage", "#fff1f1"),
-        (0.67, 0.18, "Human Validation", f"{human_n} blinded scenarios\n{human_r} non-author reviewers\nordinal agreement", "#edf7ff"),
+        (0.04, 0.61, "Input Plan", "48 balanced cells\nattack x environment\nx difficulty", "#e8f1fb"),
+        (0.25, 0.61, "LLM Proposal", "metadata-only JSON\nno payload execution\nno live targets", "#f7efe2"),
+        (0.46, 0.61, "Validator", f"schema + ATT&CK v14.1\nfirst active {first}\nbounded re-query", "#e8f6ee"),
+        (0.67, 0.61, "Accepted Corpus", f"{scenarios} scenarios\n{active} active IDs\n{base} base techniques", "#f2edf9"),
+        (0.25, 0.17, "Evaluation Stack", "R(S) scoring\nmutation + SOC sensitivity\nreal metadata baselines", "#eef3f3"),
+        (0.46, 0.17, "Replay Grounding", f"{sigma_rules} Sigma rules\n{sigma_events} labelled events\ntechnique coverage", "#fff1f1"),
+        (0.67, 0.17, "Human Validation", f"{human_n} blinded scenarios\n{human_r} non-author reviewers\nordinal agreement", "#edf7ff"),
     ]
     for x, y, title, body, color in boxes:
-        box(ax, x, y, 0.17, 0.22, title, body, color)
+        box(ax, x, y, 0.17, 0.25, title, body, color)
     for x1, x2 in [(0.21, 0.25), (0.42, 0.46), (0.63, 0.67)]:
         arrow(ax, x1, 0.74, x2, 0.74)
     arrow(ax, 0.755, 0.63, 0.335, 0.40)

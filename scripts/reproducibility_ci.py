@@ -11,8 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 PY_COMPILE_TARGETS = [
     "analysis/attack_version_robustness.py",
+    "analysis/build_results_registry.py",
+    "analysis/contamination_audit.py",
     "analysis/external_realism_validation.py",
     "analysis/multimodel.py",
+    "analysis/multimodel_coverage_curve.py",
     "analysis/multimodel_table.py",
     "analysis/corpus_diversity.py",
     "analysis/non_llm_baseline.py",
@@ -31,7 +34,10 @@ PY_COMPILE_TARGETS = [
     "scaleup/corpus_scaleup.py",
     "scaleup/parallel_scaleup.py",
     "scripts/reproducibility_ci.py",
+    "scripts/float_reference_lint.py",
     "scripts/number_consistency_lint.py",
+    "scripts/sync_overleaf_analysis_sources.py",
+    "scripts/verify_overleaf_zip.py",
     "tests/smoke_pipeline.py",
     "visualization/build_architecture_figure.py",
     "visualization/export_ieee_figures.py",
@@ -49,6 +55,7 @@ def main() -> int:
     run([py, "tests/smoke_pipeline.py"])
     if (ROOT / "paper" / "ieee_access_overleaf").exists() and (ROOT / "results" / "registry.json").exists():
         run([py, "scripts/number_consistency_lint.py"])
+        run([py, "scripts/float_reference_lint.py"])
     print("reproducibility-ci ok")
     return 0
 
