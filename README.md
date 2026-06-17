@@ -15,6 +15,9 @@
   <img src="https://img.shields.io/badge/Scenarios-1%2C000-orange.svg" alt="Scenarios"/>
   <img src="https://img.shields.io/badge/LLM-GPT--4o--mini-purple.svg" alt="LLM"/>
   <img src="https://img.shields.io/badge/Paper-IEEE%20Access-lightblue.svg" alt="Paper"/>
+  <a href="https://doi.org/10.5281/zenodo.20733131">
+    <img src="https://zenodo.org/badge/1253550351.svg" alt="DOI"/>
+  </a>
 </p>
 
 > **AdverSim** is a closed-loop, LLM-assisted framework for generating MITRE ATT&CK-aligned adversarial cyber attack scenarios at scale — enabling SOC teams, cyber range operators, and detection engineers to build diverse, realistic training corpora without manual authoring.
@@ -693,7 +696,7 @@ artifact.
 
 ## Citation
 
-This repository includes `CITATION.cff` and `.zenodo.json` metadata for Zenodo's GitHub integration. After Zenodo is connected to the GitHub repository, each GitHub release can be archived automatically and assigned a version-specific software DOI.
+This repository is archived through Zenodo's GitHub integration. The all-versions software DOI is [`10.5281/zenodo.20733131`](https://doi.org/10.5281/zenodo.20733131), and the exact `v1.0.0` code-release DOI is [`10.5281/zenodo.20733132`](https://doi.org/10.5281/zenodo.20733132).
 
 If you use AdverSim in your research, please cite:
 

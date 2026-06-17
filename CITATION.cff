@@ -17,6 +17,7 @@ authors:
     affiliation: "Edge Hill University, Lancashire, United Kingdom"
 abstract: "AdverSim is a reproducible Python research codebase for generating, validating, mutating, and evaluating MITRE ATT&CK-aligned adversarial cyber-range scenarios."
 repository-code: "https://github.com/imranalmunyeem/llm-attack-generation-cyberrange"
+doi: "10.5281/zenodo.20733131"
 license: MIT
 keywords:
   - "MITRE ATT&CK"
