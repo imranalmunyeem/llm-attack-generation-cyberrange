@@ -197,10 +197,10 @@ def write_table(result: dict[str, Any]) -> None:
         "\\caption{Blinded human comparison of matched LLM and ATT\\&CK-constrained template scenarios. Positive differences favour the LLM scenario in each pair.}",
         "\\label{tab:baseline-human-comparison}",
         "\\small",
-        "\\setlength{\\tabcolsep}{3pt}",
+        "\\setlength{\\tabcolsep}{2pt}",
         "\\begin{tabular}{lrrrrrr}",
         "\\toprule",
-        "Dimension & LLM & Template & Diff. [95\\% CI] & LLM $>$ & $r_{rb}$ & Wilcoxon $p$ \\\\",
+        "Dimension & LLM & Tpl. & $\\Delta$ [95\\% CI] & LLM $>$ & $r_{rb}$ & $p_W$ \\\\",
         "\\midrule",
     ]
     for column, label in DIMENSIONS:
