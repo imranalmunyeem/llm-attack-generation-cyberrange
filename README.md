@@ -693,6 +693,8 @@ artifact.
 
 ## Citation
 
+This repository includes `CITATION.cff` and `.zenodo.json` metadata for Zenodo's GitHub integration. After Zenodo is connected to the GitHub repository, each GitHub release can be archived automatically and assigned a version-specific software DOI.
+
 If you use AdverSim in your research, please cite:
 
 ```bibtex
