@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "AdverSim: Validated LLM-Generated Cyber-Range Scenarios with MITRE ATT&CK Grounding"
+type: software
+authors:
+  - family-names: "Al Munyeem"
+    given-names: "Imran"
+    orcid: "https://orcid.org/0009-0007-3538-1172"
+    affiliation: "Nottingham Trent University, Nottingham, United Kingdom"
+  - family-names: "Artemi"
+    given-names: "Mahmoud"
+    orcid: "https://orcid.org/0000-0002-5177-8977"
+    affiliation: "University of Bedfordshire, Luton, United Kingdom"
+  - family-names: "Alsboui"
+    given-names: "Tariq"
+    orcid: "https://orcid.org/0000-0001-6004-3756"
+    affiliation: "Edge Hill University, Lancashire, United Kingdom"
+abstract: "AdverSim is a reproducible Python research codebase for generating, validating, mutating, and evaluating MITRE ATT&CK-aligned adversarial cyber-range scenarios."
+repository-code: "https://github.com/imranalmunyeem/llm-attack-generation-cyberrange"
+license: MIT
+keywords:
+  - "MITRE ATT&CK"
+  - "cyber range"
+  - "large language models"
+  - "adversarial simulation"
+  - "security evaluation"

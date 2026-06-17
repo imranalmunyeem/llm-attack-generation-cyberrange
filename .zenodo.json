@@ -1,0 +1,43 @@
+{
+  "title": "AdverSim: Validated LLM-Generated Cyber-Range Scenarios with MITRE ATT&CK Grounding",
+  "upload_type": "software",
+  "description": "AdverSim is a reproducible Python research codebase for generating, validating, mutating, and evaluating MITRE ATT&CK-aligned adversarial cyber-range scenarios. The repository contains the reproducible code and lightweight fixtures; large generated corpora and manuscript artifacts are kept outside git.",
+  "creators": [
+    {
+      "name": "Al Munyeem, Imran",
+      "affiliation": "Nottingham Trent University, Nottingham, United Kingdom",
+      "orcid": "0009-0007-3538-1172"
+    },
+    {
+      "name": "Artemi, Mahmoud",
+      "affiliation": "University of Bedfordshire, Luton, United Kingdom",
+      "orcid": "0000-0002-5177-8977"
+    },
+    {
+      "name": "Alsboui, Tariq",
+      "affiliation": "Edge Hill University, Lancashire, United Kingdom",
+      "orcid": "0000-0001-6004-3756"
+    }
+  ],
+  "license": {
+    "id": "MIT"
+  },
+  "access_right": "open",
+  "keywords": [
+    "MITRE ATT&CK",
+    "cyber range",
+    "large language models",
+    "adversarial simulation",
+    "security evaluation",
+    "Sigma replay",
+    "reproducibility"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/imranalmunyeem/llm-attack-generation-cyberrange",
+      "relation": "isSupplementTo"
+    }
+  ]
+}

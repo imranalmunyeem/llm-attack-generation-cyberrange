@@ -166,6 +166,10 @@ The GitHub repository should contain reproducible source code, lightweight fixtu
 
 For a paper artifact release, upload generated corpora to a dedicated archive such as Zenodo, OSF, or a GitHub Release, then cite that release from the manuscript. Keep the manuscript itself outside the public code branch until submission/publication timing is appropriate.
 
+## Citation And DOI
+
+This repository includes `CITATION.cff` and `.zenodo.json` metadata for Zenodo's GitHub integration. After Zenodo is connected to the GitHub repository, each GitHub release can be archived automatically and assigned a version-specific software DOI. The large generated corpus is intentionally kept outside git and should be deposited as a separate dataset artifact if the paper requires a citable data DOI.
+
 ## Safety Scope
 
 AdverSim is intended for defensive simulation, cyber-range education, and detection engineering research. Generated scenarios and rules require human review before operational use.
