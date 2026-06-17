@@ -118,6 +118,17 @@ def bootstrap_ci(values: list[float], seed: int, n_boot: int = 5000) -> list[flo
     return [round(float(lo), 6), round(float(hi), 6)]
 
 
+def rank_biserial_effect(diffs: list[float]) -> float | None:
+    nonzero = [diff for diff in diffs if diff != 0]
+    if not nonzero:
+        return None
+    ranks = stats.rankdata([abs(diff) for diff in nonzero], method="average")
+    pos = sum(rank for rank, diff in zip(ranks, nonzero) if diff > 0)
+    neg = sum(rank for rank, diff in zip(ranks, nonzero) if diff < 0)
+    total = sum(ranks)
+    return round(float((pos - neg) / total), 6) if total else None
+
+
 def summarize_dimension(long_rows: list[dict[str, Any]], dimension: str, seed: int) -> dict[str, Any]:
     scenario_values: dict[tuple[str, str, str], list[int]] = defaultdict(list)
     for row in long_rows:
@@ -151,6 +162,7 @@ def summarize_dimension(long_rows: list[dict[str, Any]], dimension: str, seed: i
         "pairs_equal": sum(1 for d in diffs if d == 0),
         "pairs_template_greater": sum(1 for d in diffs if d < 0),
         "wilcoxon_p_greater": float(wilcoxon.pvalue),
+        "rank_biserial_r": rank_biserial_effect(diffs),
         "paired_t_p_greater": float(ttest.pvalue),
         "diffs": [round(float(d), 6) for d in diffs],
     }
@@ -185,9 +197,10 @@ def write_table(result: dict[str, Any]) -> None:
         "\\caption{Blinded human comparison of matched LLM and ATT\\&CK-constrained template scenarios. Positive differences favour the LLM scenario in each pair.}",
         "\\label{tab:baseline-human-comparison}",
         "\\small",
-        "\\begin{tabular}{lrrrrr}",
+        "\\setlength{\\tabcolsep}{3pt}",
+        "\\begin{tabular}{lrrrrrr}",
         "\\toprule",
-        "Dimension & LLM mean & Template mean & Mean diff. [95\\% CI] & LLM $>$ template & Wilcoxon $p$ \\\\",
+        "Dimension & LLM & Template & Diff. [95\\% CI] & LLM $>$ & $r_{rb}$ & Wilcoxon $p$ \\\\",
         "\\midrule",
     ]
     for column, label in DIMENSIONS:
@@ -196,7 +209,8 @@ def write_table(result: dict[str, Any]) -> None:
         lines.append(
             f"{label} & {fmt(row['llm_mean'])} & {fmt(row['template_mean'])} & "
             f"{fmt(row['mean_difference'])} [{fmt(lo)}, {fmt(hi)}] & "
-            f"{row['pairs_llm_greater']}/{row['pairs']} & {row['wilcoxon_p_greater']:.3g} \\\\"
+            f"{row['pairs_llm_greater']}/{row['pairs']} & {fmt(row['rank_biserial_r'])} & "
+            f"{row['wilcoxon_p_greater']:.3g} \\\\"
         )
     lines.extend(["\\bottomrule", "\\end{tabular}", "\\end{table*}", ""])
     TABLE.write_text("\n".join(lines), encoding="utf-8")

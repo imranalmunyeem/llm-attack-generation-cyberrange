@@ -99,6 +99,7 @@ def main() -> int:
             add(reg, f"baseline_human.{safe}.ci_low", row["mean_difference_95ci"][0], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
             add(reg, f"baseline_human.{safe}.ci_high", row["mean_difference_95ci"][1], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
             add(reg, f"baseline_human.{safe}.wilcoxon_p", row["wilcoxon_p_greater"], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
+            add(reg, f"baseline_human.{safe}.rank_biserial_r", row["rank_biserial_r"], "results/baseline_human_comparison.json", "analysis/baseline_human_comparison.py", row["pairs"])
 
     external = load(ROOT / "results" / "external_realism_validation.json")
     if external:
