@@ -72,6 +72,8 @@ def likely_non_claim(literal: str, context: str) -> bool:
     ctx = context.lower()
     if "doi" in ctx or "access.2026" in ctx:
         return True
+    if "orcid" in ctx:
+        return True
     if "sha-256" in ctx:
         return True
     if literal.startswith("-") and ("--" in context or "len(" in ctx or "1--5" in ctx):
