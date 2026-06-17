@@ -10,7 +10,7 @@ ifeq ($(wildcard $(VENV_PYTHON)),)
 VENV_PYTHON := $(PYTHON)
 endif
 
-.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay multimodel-plan multimodel-small multimodel-exact-size real-baselines attack-version-robustness external-realism-validation supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa
+.PHONY: env smoke pre-push-check scaleup-plan scaleup-small scaleup-full stats soc-sensitivity otrf-normalize sigma-replay-sample sigma-replay sigma-replay-intervals multimodel-plan multimodel-small multimodel-exact-size multimodel-expanded-plan multimodel-table real-baselines attack-version-robustness external-realism-validation leakage-audit corpus-diversity non-llm-baseline rs-weight-sensitivity statistical-hardening hardening-registry figure-export number-consistency supplemental-robustness annotation-prepare annotation-analyze reproducibility-ci reproduce qa paper-hardening
 
 env:
 	@$(PYTHON) scripts/create_env.py
@@ -47,6 +47,9 @@ sigma-replay-sample:
 sigma-replay:
 	@$(VENV_PYTHON) detection/sigma_replay.py --rules data/generated/sigma_rules --events data/raw_logs/sigma_replay_events.jsonl --out results/sigma_measured.json
 
+sigma-replay-intervals:
+	@$(VENV_PYTHON) analysis/sigma_replay_intervals.py
+
 multimodel-plan:
 	@$(VENV_PYTHON) analysis/multimodel.py --dry-run
 
@@ -55,6 +58,12 @@ multimodel-small:
 
 multimodel-exact-size:
 	@$(VENV_PYTHON) analysis/multimodel.py --run --n 150 --models gpt-4o-mini gpt-4.1-mini
+
+multimodel-expanded-plan:
+	@$(VENV_PYTHON) analysis/multimodel.py --dry-run --n 300 --models gpt-4o-mini gpt-4.1-mini o4-mini
+
+multimodel-table:
+	@$(VENV_PYTHON) analysis/multimodel_table.py
 
 real-baselines:
 	@$(VENV_PYTHON) baselines/real_baselines.py
@@ -65,7 +74,34 @@ attack-version-robustness:
 external-realism-validation:
 	@$(VENV_PYTHON) analysis/external_realism_validation.py
 
-supplemental-robustness: attack-version-robustness external-realism-validation
+leakage-audit:
+	@$(VENV_PYTHON) analysis/leakage_audit.py
+
+corpus-diversity:
+	@$(VENV_PYTHON) analysis/corpus_diversity.py
+
+non-llm-baseline:
+	@$(VENV_PYTHON) analysis/non_llm_baseline.py
+
+rs-weight-sensitivity:
+	@$(VENV_PYTHON) analysis/rs_weight_sensitivity.py
+
+statistical-hardening: sigma-replay-intervals
+	@$(VENV_PYTHON) analysis/statistical_hardening.py
+
+hardening-registry:
+	@$(VENV_PYTHON) analysis/update_hardening_registry.py
+
+figure-export:
+	@$(VENV_PYTHON) visualization/build_architecture_figure.py
+	@$(VENV_PYTHON) visualization/export_ieee_figures.py
+
+number-consistency:
+	@$(VENV_PYTHON) scripts/number_consistency_lint.py
+
+paper-hardening: figure-export multimodel-table corpus-diversity non-llm-baseline rs-weight-sensitivity sigma-replay-intervals leakage-audit statistical-hardening hardening-registry number-consistency
+
+supplemental-robustness: attack-version-robustness external-realism-validation leakage-audit
 	@$(VENV_PYTHON) analysis/preregistered_blind_eval.py
 
 annotation-prepare:
